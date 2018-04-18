@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {UI} from "../../providers/weui.service";
+import {UI} from "../../providers/providers.module";
 
 @Component({
   selector: 'page-home',

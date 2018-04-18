@@ -16,7 +16,11 @@ import {IonWechatProvidersModule} from "../providers/providers.module";
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonWechatProvidersModule.forRoot({debug: true})
+    IonWechatProvidersModule.forRoot({
+      debug: true,
+      userKey: "user",
+      imgBaseUrl:""
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

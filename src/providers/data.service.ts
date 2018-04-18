@@ -16,8 +16,7 @@ let ENV = {DEBUG: false};
 export class DataService
 {
 
-  private KEY_SUFFIX = "20180322" + (ENV.DEBUG ? "_dev" : "");
-  private KEY_USER: string = 'yile_user' + this.KEY_SUFFIX;
+  public static KEY_USER: string = 'user';
   private user: any;
 
   constructor(public storage: Storage, public events: Events)
@@ -37,7 +36,7 @@ export class DataService
       this.user.expiresIn = Date.now() + (ENV.DEBUG ? 1000 : 86400000 * 7);
       this.events.publish("user:ready", this.user)
     }
-    this.storage.set(this.KEY_USER, user);
+    this.storage.set(DataService.KEY_USER, user);
   }
 
   getUser(): Promise<any>
@@ -45,10 +44,10 @@ export class DataService
     if (this.user) {
       return Promise.resolve(this.user);
     } else {
-      return this.storage.get(this.KEY_USER)
+      return this.storage.get(DataService.KEY_USER)
           .then(user => {
             if (user && user.expiresIn < Date.now()) {
-              this.storage.remove(this.KEY_USER);
+              this.storage.remove(DataService.KEY_USER);
               return null;
             }
             this.user = user;

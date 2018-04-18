@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
 import {AlertController, LoadingController, ToastController, ToastOptions} from "ionic-angular";
-import {UI} from "./providers.module";
 
 /*
  Generated class for the UikitService provider.
