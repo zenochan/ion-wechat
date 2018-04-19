@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
-import {AlertController, LoadingController, ToastController, ToastOptions} from "ionic-angular";
+import {AlertController, Loading, LoadingController, ToastController, ToastOptions} from "ionic-angular";
 
 /*
  Generated class for the UikitService provider.
@@ -17,7 +17,7 @@ export class WeuiService
   {
   }
 
-  showLoading()
+  showLoading():Loading
   {
     let loading = this.loadingCtrl.create({
       spinner: 'hide',

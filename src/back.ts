@@ -9,10 +9,10 @@ export class Back
   public static onIonViewDidLoad(page: any)
   {
     page.time = new Date().getTime();
-    page.back = e => {
+    page.back = (e: any) => {
       // 这里获取到的 state 实际上是 popstate 后的 data, so 后面的代码需要替换前一个 state data
       if (window.history.state.time == page.time) {
-        page.navCtrl.pop().catch(e => console.error(e));
+        page.navCtrl.pop().catch((e:any) => console.error(e));
         // 注销监听
         window.removeEventListener("popstate", page.back);
         page.back = null;

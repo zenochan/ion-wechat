@@ -30,8 +30,8 @@ Date.prototype.weekOfYear = function () {
   return [year, weekNo];
 };
 
-Date.prototype.format = function (fmt) { //author: meizz
-  let o = {
+Date.prototype.format = function (fmt:string) { //author: meizz
+  let o= {
     "M+": this.getMonth() + 1, //月份
     "d+": this.getDate(), //日
     "h+": this.getHours() % 12 == 0 ? 12 : this.getHours() % 12, //小时
