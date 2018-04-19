@@ -1,9 +1,9 @@
 {
   "name": "ion-wechat",
   "version": "0.0.2",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
-  "private": true,
+  "author": "Zeno Chan",
+  "homepage": "https://zenochan.github.io/",
+  "private": false,
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
