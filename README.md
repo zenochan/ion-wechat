@@ -31,7 +31,7 @@ export class AppModule
 
 #### WEUI
 ```bash
-cp node_modules/ion-wechat/dist/css/weui.ionicx.css ./src/assets/css/
+cp -r node_modules/ion-wechat/dist/weui/ src/weui/
 ```
 
 app.scss
