@@ -10,7 +10,10 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "compile": "tsc"
+    "css-compile-weui": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/weui/weui.ionicx.scss dist/css/weui.ionicx.css",
+    "tsc": "tsc",
+    "compile":"npm run tsc && npm run css-compile-weui"
+
   },
   "dependencies": {
     "@angular/animations": "5.2.9",

@@ -12,15 +12,8 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "target": "es5",
-
-
-//    "noImplicitAny": true,
-//    "noUnusedLocals": true,
-//    "noUnusedParameters": false,
     "outDir": "./dist",
     "removeComments": false
-
-
   },
   "include": [
     "src/**/*.ts",

@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "a.css",
+	"sources": [
+		"../src/weui/weui.page.scss"
+	],
+	"sourcesContent": [
+		".page {\n  position: absolute;\n\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  overflow-y: auto;\n  -webkit-overflow-scrolling: touch;\n  z-index: 1; // fix 滑动几次后可滚动区域会卡住的问题\n  background-color: #f8f8f8;\n}\n\n.page__hd {\n  padding: 40px;\n}\n\n.page__bd {\n}\n\n\n.page__bd_spacing {\n  padding: 0 15px;\n}\n\n\n.page__ft {\n  padding-top: 40px;\n  padding-bottom: 10px;\n  text-align: center;\n  img {\n    height: 19px;\n  }\n  &.j_bottom {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n  }\n}\n\n.page__title {\n  text-align: left;\n  font-size: 20px;\n  font-weight: 400;\n}\n\n.page__desc {\n  margin-top: 5px;\n  color: #888888;\n  text-align: left;\n  font-size: 14px;\n}\n"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,KAAK,CAAC;EACJ,QAAQ,EAAE,QAAQ;EAElB,GAAG,EAAE,CAAC;EACN,KAAK,EAAE,CAAC;EACR,MAAM,EAAE,CAAC;EACT,IAAI,EAAE,CAAC;EACP,UAAU,EAAE,IAAI;EAChB,0BAA0B,EAAE,KAAK;EACjC,OAAO,EAAE,CAAC;EACV,gBAAgB,EAAE,OAAO;CAC1B;;AAED,AAAA,SAAS,CAAC;EACR,OAAO,EAAE,IAAI;CACd;;AAMD,AAAA,iBAAiB,CAAC;EAChB,OAAO,EAAE,MAAM;CAChB;;AAGD,AAAA,SAAS,CAAC;EACR,WAAW,EAAE,IAAI;EACjB,cAAc,EAAE,IAAI;EACpB,UAAU,EAAE,MAAM;CAUnB;;AAbD,AAIE,SAJO,CAIP,GAAG,CAAC;EACF,MAAM,EAAE,IAAI;CACb;;AANH,AAOE,SAPO,AAOP,SAAU,CAAC;EACT,QAAQ,EAAE,QAAQ;EAClB,MAAM,EAAE,CAAC;EACT,IAAI,EAAE,CAAC;EACP,KAAK,EAAE,CAAC;CACT;;AAGH,AAAA,YAAY,CAAC;EACX,UAAU,EAAE,IAAI;EAChB,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,GAAG;CACjB;;AAED,AAAA,WAAW,CAAC;EACV,UAAU,EAAE,GAAG;EACf,KAAK,EAAE,OAAO;EACd,UAAU,EAAE,IAAI;EAChB,SAAS,EAAE,IAAI;CAChB"
+}
