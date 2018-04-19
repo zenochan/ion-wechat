@@ -17,8 +17,7 @@
     //...
     IonWechatProvidersModule.forRoot({
       debug: true,
-      userKey: "user",
-      imgBaseUrl:""
+      userKey: "user", imgBaseUrl:""
     })
   ],
 })
@@ -31,7 +30,11 @@ export class AppModule
 
 
 #### WEUI
+```bash
+cp node_modules/ion-wechat/dist/css/weui.ionicx.css ./src/assets/css/
+```
+
 app.scss
 ```scss
-@import "~ion-wechat/src/weui/weui.ionicx.scss"
+@import "../assets/css/weui.ionicx.css";
 ```

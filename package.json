@@ -11,8 +11,9 @@
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
     "css-compile-weui": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/weui/weui.ionicx.scss dist/css/weui.ionicx.css",
+    "cp-weui": "cp -r src/weui/ dist/weui",
     "tsc": "tsc",
-    "compile": "npm-run-all tsc css-compile-weui"
+    "compile": "npm-run-all tsc cp-weui"
   },
   "files": [
     "dist/",
