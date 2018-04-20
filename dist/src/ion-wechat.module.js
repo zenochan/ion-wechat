@@ -16,7 +16,7 @@ var IonWechatModule = /** @class */ (function () {
     IonWechatModule.forRoot = function (options) {
         IonWechatModule_1.DEBUG = options.debug;
         Photo.BASE_URL = options.imgBaseUrl;
-        DataService.KEY_USER = options.userKey;
+        DataService.KEY_USER = options.userKey + (options.debug ? "_debug" : "");
         return IonWechatModule_1;
     };
     IonWechatModule.DEBUG = false;
