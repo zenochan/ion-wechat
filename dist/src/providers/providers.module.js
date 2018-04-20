@@ -12,23 +12,16 @@ import { WeuiService } from "./weui.service";
 import { DataService } from "./data.service";
 import { Events } from "ionic-angular";
 import { IonicStorageModule } from "@ionic/storage";
-import { Photo } from "../pipes/photo";
 export var UI;
 export var Data;
-export var Event;
+export var IonEvent;
 var IonWechatProvidersModule = /** @class */ (function () {
     function IonWechatProvidersModule(ui, data, events) {
         UI = ui;
         Data = data;
-        Event = events;
+        IonEvent = events;
     }
-    IonWechatProvidersModule_1 = IonWechatProvidersModule;
-    IonWechatProvidersModule.forRoot = function (options) {
-        Photo.BASE_URL = options.imgBaseUrl;
-        DataService.KEY_USER = options.userKey;
-        return IonWechatProvidersModule_1;
-    };
-    IonWechatProvidersModule = IonWechatProvidersModule_1 = __decorate([
+    IonWechatProvidersModule = __decorate([
         NgModule({
             imports: [
                 IonicStorageModule.forRoot()
@@ -41,13 +34,6 @@ var IonWechatProvidersModule = /** @class */ (function () {
         __metadata("design:paramtypes", [WeuiService, DataService, Events])
     ], IonWechatProvidersModule);
     return IonWechatProvidersModule;
-    var IonWechatProvidersModule_1;
 }());
 export { IonWechatProvidersModule };
-var Options = /** @class */ (function () {
-    function Options() {
-    }
-    return Options;
-}());
-export { Options };
 //# sourceMappingURL=providers.module.js.map

@@ -1,4 +1,4 @@
-export * from "./src/providers/providers.module";
+export * from "./src/ion-wechat.module";
 export * from "./src/providers/wechat";
 export * from "./src/pipes/pipes.module";
 export * from "./src/back";

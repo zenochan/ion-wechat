@@ -7,6 +7,7 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 import {IonWechatProvidersModule} from "../providers/providers.module";
+import {IonWechatModule} from "../ion-wechat.module";
 
 @NgModule({
   declarations: [
@@ -16,10 +17,10 @@ import {IonWechatProvidersModule} from "../providers/providers.module";
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonWechatProvidersModule.forRoot({
+    IonWechatModule.forRoot({
       debug: true,
       userKey: "user",
-      imgBaseUrl:""
+      imgBaseUrl: ""
     })
   ],
   bootstrap: [IonicApp],

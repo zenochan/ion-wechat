@@ -11,7 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { IonWechatProvidersModule } from "../providers/providers.module";
+import { IonWechatModule } from "../ion-wechat.module";
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -24,7 +24,7 @@ var AppModule = /** @class */ (function () {
             imports: [
                 BrowserModule,
                 IonicModule.forRoot(MyApp),
-                IonWechatProvidersModule.forRoot({
+                IonWechatModule.forRoot({
                     debug: true,
                     userKey: "user",
                     imgBaseUrl: ""

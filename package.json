@@ -10,10 +10,12 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "css-compile-weui": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/weui/weui.ionicx.scss dist/css/weui.ionicx.css",
+    "cp-readme": "cp README.md dist/",
+    "cp-doc": "cp -r doc dist/doc",
+    "cp-conf": "cp -r conf dist/conf",
     "cp-weui": "cp -r src/weui/ dist/weui",
     "tsc": "tsc",
-    "compile": "npm-run-all tsc cp-weui"
+    "compile": "npm-run-all tsc cp-*"
   },
   "files": [
     "dist/",
