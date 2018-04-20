@@ -8,10 +8,12 @@ import { NgModule } from '@angular/core';
 import { PreviewPipe } from "./preview";
 import { Sanitizer } from "./sanitizer";
 import { ZdatePipe } from "./zdate";
+import { Photo } from "./photo";
 var pipes = [
     PreviewPipe,
     Sanitizer,
-    ZdatePipe
+    ZdatePipe,
+    Photo
 ];
 var PipesModule = /** @class */ (function () {
     function PipesModule() {
