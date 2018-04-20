@@ -3,6 +3,12 @@ import {DataService} from "./providers/data.service";
 import {Photo} from "./pipes/photo";
 import {IonWechatProvidersModule} from "./providers/providers.module";
 import {HttpClientModule} from "@angular/common/http";
+import {WeuiService} from "./providers/weui.service";
+import {Events} from "ionic-angular";
+
+export let UI: WeuiService;
+export let Data: DataService;
+export let IonEvent: Events;
 
 @NgModule({
   imports: [
@@ -13,6 +19,14 @@ import {HttpClientModule} from "@angular/common/http";
 export class IonWechatModule
 {
   public static DEBUG: boolean = false;
+
+  constructor(ui: WeuiService, data: DataService, events: Events)
+  {
+    UI = ui;
+    Data = data;
+    IonEvent = events;
+    console.error(UI,Data,IonEvent);
+  }
 
   static forRoot(options: Options)
   {

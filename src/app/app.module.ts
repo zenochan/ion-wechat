@@ -1,12 +1,11 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {ErrorHandler, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {StatusBar} from '@ionic-native/status-bar';
 
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
-import {IonWechatProvidersModule} from "../providers/providers.module";
 import {IonWechatModule} from "../ion-wechat.module";
 
 @NgModule({
@@ -28,7 +27,6 @@ import {IonWechatModule} from "../ion-wechat.module";
     MyApp,
     HomePage
   ],
-  schemas: [NO_ERRORS_SCHEMA],
   providers: [
     StatusBar,
     SplashScreen,
@@ -37,5 +35,4 @@ import {IonWechatModule} from "../ion-wechat.module";
 })
 export class AppModule
 {
-  // constructor(ui: WeuiService) {}
 }

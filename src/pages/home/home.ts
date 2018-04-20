@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {UI} from "../../providers/providers.module";
+import {UI} from "../../ion-wechat.module";
 
 @Component({
   selector: 'page-home',
