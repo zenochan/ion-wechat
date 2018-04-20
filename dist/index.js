@@ -5,4 +5,5 @@ export * from "./src/back";
 export * from "./src/pipes/photo";
 // laravel 返回的的分页数据结构
 export * from "./src/laravel/page-data";
+export * from "./src/page-delegate";
 //# sourceMappingURL=index.js.map
