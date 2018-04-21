@@ -23,6 +23,18 @@ export class Sanitizer implements PipeTransform
       case this.SecurityContextMap.HTML:
         res = this.sanitiser.bypassSecurityTrustHtml(value);
         break;
+      case this.SecurityContextMap.URL:
+        res = this.sanitiser.bypassSecurityTrustUrl(value);
+        break;
+      case this.SecurityContextMap.SCRIPT:
+        res = this.sanitiser.bypassSecurityTrustScript(value);
+        break;
+      case this.SecurityContextMap.STYLE:
+        res = this.sanitiser.bypassSecurityTrustStyle(value);
+        break;
+      case this.SecurityContextMap.RESOURCE_URL:
+        res = this.sanitiser.bypassSecurityTrustResourceUrl(value);
+        break;
       default:
         res = this.sanitiser.sanitize(context, value);
         break;
