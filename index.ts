@@ -9,3 +9,5 @@ export * from "./src/pipes/photo";
 export * from "./src/laravel/page-data";
 export * from "./src/page-delegate"
 export * from "./src/page-event"
+
+export * from "./src/utils/code-timer";
