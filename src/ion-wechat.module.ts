@@ -5,6 +5,7 @@ import {IonWechatProvidersModule} from "./providers/providers.module";
 import {HttpClientModule} from "@angular/common/http";
 import {WeuiService} from "./providers/weui.service";
 import {Events} from "ionic-angular";
+import {IonicStorageModule} from "@ionic/storage";
 
 export let UI: WeuiService;
 export let Data: DataService;
@@ -13,8 +14,8 @@ export const CONFIG = new InjectionToken("IonWechatConfig");
 
 @NgModule({
   imports: [
-    HttpClientModule,
-    IonWechatProvidersModule
+    HttpClientModule
+    // IonWechatProvidersModule
   ]
 })
 export class IonWechatModule
@@ -40,7 +41,10 @@ export class IonWechatModule
   {
     return {
       ngModule: IonWechatModule,
-      providers: [{provide: CONFIG, useValue: options}]
+      providers: [
+        {provide: CONFIG, useValue: options},
+
+      ]
     }
   }
 }

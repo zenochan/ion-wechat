@@ -5,7 +5,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { InjectionToken, NgModule } from '@angular/core';
-import { IonWechatProvidersModule } from "./providers/providers.module";
 import { HttpClientModule } from "@angular/common/http";
 export var UI;
 export var Data;
@@ -32,15 +31,17 @@ var IonWechatModule = /** @class */ (function () {
     IonWechatModule.forRoot = function (options) {
         return {
             ngModule: IonWechatModule_1,
-            providers: [{ provide: CONFIG, useValue: options }]
+            providers: [
+                { provide: CONFIG, useValue: options },
+            ]
         };
     };
     IonWechatModule.DEBUG = false;
     IonWechatModule = IonWechatModule_1 = __decorate([
         NgModule({
             imports: [
-                HttpClientModule,
-                IonWechatProvidersModule
+                HttpClientModule
+                // IonWechatProvidersModule
             ]
         })
     ], IonWechatModule);
