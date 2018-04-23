@@ -1,4 +1,4 @@
-import {Inject, ModuleWithProviders, NgModule} from '@angular/core';
+import {Inject, InjectionToken, ModuleWithProviders, NgModule} from '@angular/core';
 import {DataService} from "./providers/data.service";
 import {Photo} from "./pipes/photo";
 import {IonWechatProvidersModule} from "./providers/providers.module";
@@ -9,6 +9,7 @@ import {Events} from "ionic-angular";
 export let UI: WeuiService;
 export let Data: DataService;
 export let IonEvent: Events;
+export const CONFIG = new InjectionToken("IonWechatConfig");
 
 @NgModule({
   imports: [
@@ -20,15 +21,15 @@ export class IonWechatModule
 {
   public static DEBUG: boolean = false;
 
-  // constructor(ui: WeuiService, data: DataService, events: Events, @Inject("ION_WECHAT_OPTIONS") options: Options)
-  // {
-    // IonWechatModule.DEBUG = options.debug;
-    // Photo.BASE_URL = options.imgBaseUrl;
-    //
-    // UI = ui;
-    // Data = data;
-    // IonEvent = events;
-  // }
+  constructor(ui: WeuiService, data: DataService, events: Events, @Inject(CONFIG) options: Options)
+  {
+    IonWechatModule.DEBUG = options.debug;
+    Photo.BASE_URL = options.imgBaseUrl;
+
+    UI = ui;
+    Data = data;
+    IonEvent = events;
+  }
 
   /**
    * @see [fuction calls are not supported in decorators](https://github.com/angular/angular-cli/issues/9358)
@@ -39,7 +40,7 @@ export class IonWechatModule
   {
     return {
       ngModule: IonWechatModule,
-      providers: [{provide: "ION_WECHAT_OPTIONS", useValue: options}]
+      providers: [{provide: CONFIG, useValue: options}]
     }
   }
 }
