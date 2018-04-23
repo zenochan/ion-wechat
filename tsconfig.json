@@ -1,45 +1,69 @@
 // 编译时使用
+//{
+//  "compilerOptions": {
+//    "allowSyntheticDefaultImports": true,
+//    "declaration": true,
+//    "emitDecoratorMetadata": true,
+//    "experimentalDecorators": true,
+//    "lib": [
+//      "dom",
+//      "es2017"
+//    ],
+//    "module": "commonjs",
+//    "moduleResolution": "node",
+//    "sourceMap": true,
+//    "target": "es5",
+//    "outDir": "./dist",
+//    "removeComments": false,
+//
+//    "allowUnreachableCode": false,
+//    "noImplicitAny": false,
+//    "noUnusedLocals": true,
+//    "noUnusedParameters": false
+//  },
+//  "include": [
+//    "src/**/*.ts",
+//    "index.ts"
+//  ],
+//  "exclude": [
+//    "node_modules",
+//    "src/**/*.spec.ts",
+//    "src/**/__tests__/*.ts",
+//    "dist/"
+//  ],
+//  "compileOnSave": false,
+//  "buildOnSave": false,
+//  "atom": {
+//    "rewriteTsconfig": false
+//  },
+//  "angularCompilerOptions": {
+//    "skipTemplateCodegen": true,
+//    "strictMetadataEmit": true,
+//    "genDir": "./dist"
+//  }
+//}
+
+
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": [
-      "dom",
-      "es2017"
-    ],
-    "module": "commonjs",
+    "module": "es2015",
+    "target": "es5",
     "moduleResolution": "node",
     "sourceMap": true,
-    "target": "es5",
-    "outDir": "./dist",
-    "removeComments": false,
-
-    "allowUnreachableCode": false,
+    "inlineSources": true,
+    "declaration": true,
     "noImplicitAny": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": false
+    "experimentalDecorators": true,
+    "lib": ["dom", "es2015"],
+    "outDir": "dist"
   },
-  "include": [
-    "src/**/*.ts",
-    "index.ts"
-  ],
   "exclude": [
     "node_modules",
-    "src/**/*.spec.ts",
-    "src/**/__tests__/*.ts",
-    "dist/"
+    "dist",
+    "scripts"
   ],
-  "compileOnSave": false,
-  "buildOnSave": false,
-  "atom": {
-    "rewriteTsconfig": false
-  },
   "angularCompilerOptions": {
-    "skipTemplateCodegen": true,
-    "strictMetadataEmit": true,
-    "genDir": "./dist"
+    "genDir": "aot"
   }
 }
 

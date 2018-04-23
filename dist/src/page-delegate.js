@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * 处理分页UI
  */
@@ -28,5 +26,5 @@ var PageDelegate = /** @class */ (function () {
     };
     return PageDelegate;
 }());
-exports.PageDelegate = PageDelegate;
+export { PageDelegate };
 //# sourceMappingURL=page-delegate.js.map
