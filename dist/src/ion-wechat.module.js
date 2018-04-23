@@ -12,7 +12,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 import { Inject, NgModule } from '@angular/core';
 import { DataService } from "./providers/data.service";
-import { Photo } from "./pipes/photo";
 import { IonWechatProvidersModule } from "./providers/providers.module";
 import { HttpClientModule } from "@angular/common/http";
 import { WeuiService } from "./providers/weui.service";
@@ -22,11 +21,12 @@ export var Data;
 export var IonEvent;
 var IonWechatModule = /** @class */ (function () {
     function IonWechatModule(ui, data, events, options) {
-        IonWechatModule_1.DEBUG = options.debug;
-        Photo.BASE_URL = options.imgBaseUrl;
-        UI = ui;
-        Data = data;
-        IonEvent = events;
+        // IonWechatModule.DEBUG = options.debug;
+        // Photo.BASE_URL = options.imgBaseUrl;
+        //
+        // UI = ui;
+        // Data = data;
+        // IonEvent = events;
     }
     IonWechatModule_1 = IonWechatModule;
     /**

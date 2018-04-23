@@ -22,12 +22,12 @@ export class IonWechatModule
 
   constructor(ui: WeuiService, data: DataService, events: Events, @Inject("ION_WECHAT_OPTIONS") options: Options)
   {
-    IonWechatModule.DEBUG = options.debug;
-    Photo.BASE_URL = options.imgBaseUrl;
-
-    UI = ui;
-    Data = data;
-    IonEvent = events;
+    // IonWechatModule.DEBUG = options.debug;
+    // Photo.BASE_URL = options.imgBaseUrl;
+    //
+    // UI = ui;
+    // Data = data;
+    // IonEvent = events;
   }
 
   /**
