@@ -185,13 +185,13 @@ export class Wechat
         } else if (res.err_code == 3) {
           reject({code: 3, message: res});
         } else {
-          reject({code: 9, message: res.errMsg});
+          reject({code: 9, message: res.errMsg || res.err_msg});
         }
       };
 
       param.fail = res => {
         if (res.errMsg) {
-          reject({code: 9, message: res.errMsg});
+          reject({code: 9, message: res.errMsg || res.err_msg});
         } else {
           reject(res);
         }

@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {Inject, ModuleWithProviders, NgModule} from '@angular/core';
 import {DataService} from "./providers/data.service";
 import {Photo} from "./pipes/photo";
 import {IonWechatProvidersModule} from "./providers/providers.module";
@@ -20,20 +20,27 @@ export class IonWechatModule
 {
   public static DEBUG: boolean = false;
 
-  constructor(ui: WeuiService, data: DataService, events: Events)
-  {
-    UI = ui;
-    Data = data;
-    IonEvent = events;
-    console.error(UI,Data,IonEvent);
-  }
-
-  static forRoot(options: Options)
+  constructor(ui: WeuiService, data: DataService, events: Events, @Inject("ION_WECHAT_OPTIONS") options: Options)
   {
     IonWechatModule.DEBUG = options.debug;
     Photo.BASE_URL = options.imgBaseUrl;
-    DataService.KEY_USER = options.userKey + (options.debug ? "_debug" : "");
-    return IonWechatModule
+
+    UI = ui;
+    Data = data;
+    IonEvent = events;
+  }
+
+  /**
+   * @see [fuction calls are not supported in decorators](https://github.com/angular/angular-cli/issues/9358)
+   * @param {Options} options
+   * @returns {ModuleWithProviders}
+   */
+  static forRoot(options: Options): ModuleWithProviders
+  {
+    return {
+      ngModule: IonWechatModule,
+      providers: [{provide: "ION_WECHAT_OPTIONS", useValue: options}]
+    }
   }
 }
 

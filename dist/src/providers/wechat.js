@@ -75,12 +75,12 @@ var Wechat = /** @class */ (function () {
                     reject({ code: 3, message: res });
                 }
                 else {
-                    reject({ code: 9, message: res.errMsg });
+                    reject({ code: 9, message: res.errMsg || res.err_msg });
                 }
             };
             param.fail = function (res) {
                 if (res.errMsg) {
-                    reject({ code: 9, message: res.errMsg });
+                    reject({ code: 9, message: res.errMsg || res.err_msg });
                 }
                 else {
                     reject(res);

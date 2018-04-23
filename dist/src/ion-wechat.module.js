@@ -7,7 +7,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { NgModule } from '@angular/core';
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+import { Inject, NgModule } from '@angular/core';
 import { DataService } from "./providers/data.service";
 import { Photo } from "./pipes/photo";
 import { IonWechatProvidersModule } from "./providers/providers.module";
@@ -18,18 +21,24 @@ export var UI;
 export var Data;
 export var IonEvent;
 var IonWechatModule = /** @class */ (function () {
-    function IonWechatModule(ui, data, events) {
+    function IonWechatModule(ui, data, events, options) {
+        IonWechatModule_1.DEBUG = options.debug;
+        Photo.BASE_URL = options.imgBaseUrl;
         UI = ui;
         Data = data;
         IonEvent = events;
-        console.error(UI, Data, IonEvent);
     }
     IonWechatModule_1 = IonWechatModule;
+    /**
+     * @see [fuction calls are not supported in decorators](https://github.com/angular/angular-cli/issues/9358)
+     * @param {Options} options
+     * @returns {ModuleWithProviders}
+     */
     IonWechatModule.forRoot = function (options) {
-        IonWechatModule_1.DEBUG = options.debug;
-        Photo.BASE_URL = options.imgBaseUrl;
-        DataService.KEY_USER = options.userKey + (options.debug ? "_debug" : "");
-        return IonWechatModule_1;
+        return {
+            ngModule: IonWechatModule_1,
+            providers: [{ provide: "ION_WECHAT_OPTIONS", useValue: options }]
+        };
     };
     IonWechatModule.DEBUG = false;
     IonWechatModule = IonWechatModule_1 = __decorate([
@@ -39,7 +48,8 @@ var IonWechatModule = /** @class */ (function () {
                 IonWechatProvidersModule
             ]
         }),
-        __metadata("design:paramtypes", [WeuiService, DataService, Events])
+        __param(3, Inject("ION_WECHAT_OPTIONS")),
+        __metadata("design:paramtypes", [WeuiService, DataService, Events, Options])
     ], IonWechatModule);
     return IonWechatModule;
     var IonWechatModule_1;

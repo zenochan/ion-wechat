@@ -16,7 +16,7 @@ let ENV = {DEBUG: false};
 export class DataService
 {
 
-  public static KEY_USER: string = 'user';
+  private static KEY_USER: string = 'user';
   private user: any;
 
   constructor(public storage: Storage, public events: Events)
