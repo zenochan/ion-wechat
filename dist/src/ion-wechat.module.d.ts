@@ -7,7 +7,6 @@ export declare let Data: DataService;
 export declare let IonEvent: Events;
 export declare class IonWechatModule {
     static DEBUG: boolean;
-    constructor(ui: WeuiService, data: DataService, events: Events, options: Options);
     /**
      * @see [fuction calls are not supported in decorators](https://github.com/angular/angular-cli/issues/9358)
      * @param {Options} options
