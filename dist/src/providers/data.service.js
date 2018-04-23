@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,10 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Injectable } from "@angular/core";
-import "rxjs/add/operator/map";
-import { Storage } from "@ionic/storage";
-import { Events } from "ionic-angular";
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+require("rxjs/add/operator/map");
+var storage_1 = require("@ionic/storage");
+var ionic_angular_1 = require("ionic-angular");
 var ENV = { DEBUG: false };
 /*
  Generated class for the DataService provider.
@@ -79,11 +81,11 @@ var DataService = /** @class */ (function () {
     };
     DataService.KEY_USER = 'user';
     DataService = DataService_1 = __decorate([
-        Injectable(),
-        __metadata("design:paramtypes", [Storage, Events])
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [storage_1.Storage, ionic_angular_1.Events])
     ], DataService);
     return DataService;
     var DataService_1;
 }());
-export { DataService };
+exports.DataService = DataService;
 //# sourceMappingURL=data.service.js.map

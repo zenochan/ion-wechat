@@ -7,14 +7,19 @@
     "experimentalDecorators": true,
     "lib": [
       "dom",
-      "es2015"
+      "es2017"
     ],
-    "module": "es2015",
+    "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
     "target": "es5",
     "outDir": "./dist",
-    "removeComments": false
+    "removeComments": false,
+
+    "allowUnreachableCode": false,
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false
   },
   "include": [
     "src/**/*.ts",

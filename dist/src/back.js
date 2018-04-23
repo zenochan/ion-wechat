@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var Back = /** @class */ (function () {
     function Back() {
     }
@@ -31,7 +33,7 @@ var Back = /** @class */ (function () {
     };
     return Back;
 }());
-export { Back };
+exports.Back = Back;
 var BasePage = /** @class */ (function () {
     /**
      * @param {string} title 标题
@@ -62,5 +64,5 @@ var BasePage = /** @class */ (function () {
     };
     return BasePage;
 }());
-export { BasePage };
+exports.BasePage = BasePage;
 //# sourceMappingURL=back.js.map

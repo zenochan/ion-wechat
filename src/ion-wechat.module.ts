@@ -1,7 +1,7 @@
 import {InjectionToken, ModuleWithProviders, NgModule} from '@angular/core';
 import {DataService} from "./providers/data.service";
 import {WeuiService} from "./providers/weui.service";
-import {Events} from "ionic-angular";
+import {Events, IonicModule} from "ionic-angular";
 
 export let UI: WeuiService;
 export let Data: DataService;
@@ -10,6 +10,7 @@ export const CONFIG = new InjectionToken("IonWechatConfig");
 
 @NgModule({
   imports: [
+      IonicModule
     // HttpClientModule
     // IonWechatProvidersModule
   ]

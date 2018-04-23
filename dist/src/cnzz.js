@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // // 隐藏站长统计字样
 // document.body.getElementsByTagName("a")[0].style.display = "none";
 // // cnzz 页面手动同济
@@ -31,5 +33,5 @@ var Cnzz = /** @class */ (function () {
     };
     return Cnzz;
 }());
-export { Cnzz };
+exports.Cnzz = Cnzz;
 //# sourceMappingURL=cnzz.js.map

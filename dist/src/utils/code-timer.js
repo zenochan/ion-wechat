@@ -1,4 +1,6 @@
-import { Data } from "../ion-wechat.module";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var ion_wechat_module_1 = require("../ion-wechat.module");
 var CodeTimer = /** @class */ (function () {
     function CodeTimer(type) {
         if (type === void 0) { type = "code"; }
@@ -10,7 +12,7 @@ var CodeTimer = /** @class */ (function () {
          * @type {number}
          */
         this.during = 60;
-        Data.get("code:wait:" + this.type).then(function (wait) {
+        ion_wechat_module_1.Data.get("code:wait:" + this.type).then(function (wait) {
             if (!wait)
                 return;
             var remain = (wait - new Date().getTime()) / 1000 | 0;
@@ -36,9 +38,9 @@ var CodeTimer = /** @class */ (function () {
      * 在 ionWillUnload 方法中调用
      */
     CodeTimer.prototype.saveStatus = function () {
-        Data.set("code:wait:" + this.type, new Date().getTime() + this.wait * 1000).then();
+        ion_wechat_module_1.Data.set("code:wait:" + this.type, new Date().getTime() + this.wait * 1000).then();
     };
     return CodeTimer;
 }());
-export { CodeTimer };
+exports.CodeTimer = CodeTimer;
 //# sourceMappingURL=code-timer.js.map

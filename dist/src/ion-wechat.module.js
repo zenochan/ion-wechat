@@ -1,14 +1,14 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-import { InjectionToken, NgModule } from '@angular/core';
-export var UI;
-export var Data;
-export var IonEvent;
-export var CONFIG = new InjectionToken("IonWechatConfig");
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var ionic_angular_1 = require("ionic-angular");
+exports.CONFIG = new core_1.InjectionToken("IonWechatConfig");
 var IonWechatModule = /** @class */ (function () {
     function IonWechatModule() {
     }
@@ -31,24 +31,28 @@ var IonWechatModule = /** @class */ (function () {
         return {
             ngModule: IonWechatModule_1,
             providers: [
-                { provide: CONFIG, useValue: options },
+                { provide: exports.CONFIG, useValue: options },
             ]
         };
     };
     IonWechatModule.DEBUG = false;
     IonWechatModule = IonWechatModule_1 = __decorate([
-        NgModule({
-            imports: []
+        core_1.NgModule({
+            imports: [
+                ionic_angular_1.IonicModule
+                // HttpClientModule
+                // IonWechatProvidersModule
+            ]
         })
     ], IonWechatModule);
     return IonWechatModule;
     var IonWechatModule_1;
 }());
-export { IonWechatModule };
+exports.IonWechatModule = IonWechatModule;
 var Options = /** @class */ (function () {
     function Options() {
     }
     return Options;
 }());
-export { Options };
+exports.Options = Options;
 //# sourceMappingURL=ion-wechat.module.js.map

@@ -1,5 +1,7 @@
-import "rxjs/add/operator/map";
-import { Observable } from "rxjs/Observable";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require("rxjs/add/operator/map");
+var Observable_1 = require("rxjs/Observable");
 /**
  * js sdk
  * http://res.wx.qq.com/open/js/jweixin-1.1.0.js
@@ -282,7 +284,7 @@ var Wechat = /** @class */ (function () {
         return this.onVoiceRecordEnd();
     };
     Wechat.stopRecord = function () {
-        return Observable.create(function (subscriber) {
+        return Observable_1.Observable.create(function (subscriber) {
             wx.stopRecord({
                 success: function (res) {
                     subscriber.next(res.localId);
@@ -293,7 +295,7 @@ var Wechat = /** @class */ (function () {
     };
     // 录音时间超过一分钟没有停止的时候会执行 complete 回调
     Wechat.onVoiceRecordEnd = function () {
-        return Observable.create(function (subscriber) {
+        return Observable_1.Observable.create(function (subscriber) {
             wx.onVoiceRecordEnd({
                 fail: function (res) {
                     subscriber.error(res.errMsg);
@@ -306,7 +308,7 @@ var Wechat = /** @class */ (function () {
         });
     };
     Wechat.translateVoice = function (localId) {
-        return Observable.create(function (subscriber) {
+        return Observable_1.Observable.create(function (subscriber) {
             wx.translateVoice({
                 localId: localId,
                 isShowProgressTips: 1,
@@ -404,19 +406,19 @@ var Wechat = /** @class */ (function () {
     ];
     return Wechat;
 }());
-export { Wechat };
+exports.Wechat = Wechat;
 var WXSign = /** @class */ (function () {
     function WXSign() {
     }
     return WXSign;
 }());
-export { WXSign };
+exports.WXSign = WXSign;
 var WXAddress = /** @class */ (function () {
     function WXAddress() {
     }
     return WXAddress;
 }());
-export { WXAddress };
+exports.WXAddress = WXAddress;
 var WXLocation = /** @class */ (function () {
     function WXLocation() {
         this.latitude = 31.230416;
@@ -425,7 +427,7 @@ var WXLocation = /** @class */ (function () {
     }
     return WXLocation;
 }());
-export { WXLocation };
+exports.WXLocation = WXLocation;
 /**
  * 微信分享
  *
@@ -441,5 +443,5 @@ var ShareOptions = /** @class */ (function () {
     }
     return ShareOptions;
 }());
-export { ShareOptions };
+exports.ShareOptions = ShareOptions;
 //# sourceMappingURL=wechat.js.map
