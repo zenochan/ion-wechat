@@ -14,19 +14,12 @@ exports.DA_TEST = new core_1.InjectionToken("IonWechatConfig");
 var TestModule = /** @class */ (function () {
     function TestModule() {
     }
-    TestModule_1 = TestModule;
-    TestModule.forRoot = function (options) {
-        return {
-            ngModule: TestModule_1,
-        };
-    };
-    TestModule = TestModule_1 = __decorate([
+    TestModule = __decorate([
         core_1.NgModule({
             imports: []
         })
     ], TestModule);
     return TestModule;
-    var TestModule_1;
 }());
 exports.TestModule = TestModule;
 //# sourceMappingURL=test.modlue.js.map
