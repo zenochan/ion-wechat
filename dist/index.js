@@ -7,4 +7,5 @@ export * from "./src/pipes/photo";
 export * from "./src/laravel/page-data";
 export * from "./src/page-delegate";
 export * from "./src/utils/code-timer";
+export * from "./src/test.modlue";
 //# sourceMappingURL=index.js.map

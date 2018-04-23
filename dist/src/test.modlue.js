@@ -5,14 +5,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { InjectionToken, NgModule } from '@angular/core';
-export var UI;
-export var Data;
-export var IonEvent;
-export var CONFIG = new InjectionToken("IonWechatConfig");
-var IonWechatModule = /** @class */ (function () {
-    function IonWechatModule() {
+export var DA_TEST = new InjectionToken("IonWechatConfig");
+var TestModule = /** @class */ (function () {
+    function TestModule() {
     }
-    IonWechatModule_1 = IonWechatModule;
+    TestModule_1 = TestModule;
     // constructor(ui: WeuiService, data: DataService, events: Events, @Inject(CONFIG) options: Options)
     // {
     //   IonWechatModule.DEBUG = options.debug;
@@ -22,33 +19,22 @@ var IonWechatModule = /** @class */ (function () {
     //   Data = data;
     //   IonEvent = events;
     // }
-    /**
-     * @see [fuction calls are not supported in decorators](https://github.com/angular/angular-cli/issues/9358)
-     * @param {Options} options
-     * @returns {ModuleWithProviders}
-     */
-    IonWechatModule.forRoot = function (options) {
+    TestModule.forRoot = function (options) {
         return {
-            ngModule: IonWechatModule_1,
+            ngModule: TestModule_1,
             providers: [
-                { provide: CONFIG, useValue: options },
+                { provide: DA_TEST, useValue: options },
             ]
         };
     };
-    IonWechatModule.DEBUG = false;
-    IonWechatModule = IonWechatModule_1 = __decorate([
+    TestModule.DEBUG = false;
+    TestModule = TestModule_1 = __decorate([
         NgModule({
             imports: []
         })
-    ], IonWechatModule);
-    return IonWechatModule;
-    var IonWechatModule_1;
+    ], TestModule);
+    return TestModule;
+    var TestModule_1;
 }());
-export { IonWechatModule };
-var Options = /** @class */ (function () {
-    function Options() {
-    }
-    return Options;
-}());
-export { Options };
-//# sourceMappingURL=ion-wechat.module.js.map
+export { TestModule };
+//# sourceMappingURL=test.modlue.js.map
