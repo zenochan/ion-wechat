@@ -21,15 +21,15 @@ export class IonWechatModule
 {
   public static DEBUG: boolean = false;
 
-  constructor(ui: WeuiService, data: DataService, events: Events, @Inject(CONFIG) options: Options)
-  {
-    IonWechatModule.DEBUG = options.debug;
-    Photo.BASE_URL = options.imgBaseUrl;
-
-    UI = ui;
-    Data = data;
-    IonEvent = events;
-  }
+  // constructor(ui: WeuiService, data: DataService, events: Events, @Inject(CONFIG) options: Options)
+  // {
+  //   IonWechatModule.DEBUG = options.debug;
+  //   Photo.BASE_URL = options.imgBaseUrl;
+  //
+  //   UI = ui;
+  //   Data = data;
+  //   IonEvent = events;
+  // }
 
   /**
    * @see [fuction calls are not supported in decorators](https://github.com/angular/angular-cli/issues/9358)
