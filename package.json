@@ -5,19 +5,17 @@
   "homepage": "https://zenochan.github.io/",
   "private": false,
   "scripts": {
+    "publish": "npm-run-all ngc cp-*",
     "ngc": "ngc",
-    "publishPackage": "npm run build && npm publish",
     "clean": "ionic-app-scripts clean",
-    "build": "rm -rf aot dist && npm run ngc",
+    "clean-build": "ionic-app-scripts clean",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
     "cp-readme": "cp README.md dist/",
     "cp-doc": "cp -r doc dist/",
     "cp-conf": "cp -r conf dist/",
-    "cp-weui": "cp -r src/weui/ dist/weui",
-    "tsc": "tsc",
-    "compile": "npm-run-all tsc cp-*"
+    "cp-weui": "cp -r src/weui/ dist/weui"
   },
   "files": [
     "dist/",
