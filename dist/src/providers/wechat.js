@@ -10,14 +10,20 @@ var Wechat = /** @class */ (function () {
     function Wechat() {
     }
     //配置签名
-    Wechat.configSigner = function (signer) {
+    //配置签名
+    Wechat.configSigner = 
+    //配置签名
+    function (signer) {
         this.signer = signer;
         this.sign().then(function () {
             Wechat.hideMenuItems.apply(Wechat, Wechat.HIDES);
         }).catch(function (error) { return console.error('JS SDK 签名异常', error); });
     };
     // 获取 auth code
-    Wechat.getAuthCode = function () {
+    // 获取 auth code
+    Wechat.getAuthCode = 
+    // 获取 auth code
+    function () {
         var cookieState = localStorage.getItem(Wechat.COOKIE_KEY_AUTH_STATE);
         localStorage.removeItem(Wechat.COOKIE_KEY_AUTH_STATE);
         var urlState = Wechat.getUrlParam("state");
@@ -33,6 +39,7 @@ var Wechat = /** @class */ (function () {
             wx.onMenuShareTimeline({
                 title: options.title + (options.desc ? " | " + options.desc : ""),
                 desc: null,
+                // 分享到朋友圈没有 desc 字段，拼接到 title 上
                 link: options.link,
                 imgUrl: options.imgUrl,
                 success: function () { return options.success && options.success(1); },
@@ -40,11 +47,17 @@ var Wechat = /** @class */ (function () {
             });
             wx.onMenuShareAppMessage({
                 title: options.title,
+                // 分享标题
                 desc: options.desc,
+                // 分享描述
                 link: options.link,
+                // 分享链接
                 imgUrl: options.imgUrl,
+                // 分享图标
                 type: 'link',
+                // 分享类型,music、video或link，不填默认为link
                 dataUrl: null,
+                // 如果type是music或video，则要提供数据链接，默认为空
                 success: function () { return options.success && options.success(0); },
                 cancel: function () { return options.cancel && options.cancel(0); }
             });
@@ -58,7 +71,23 @@ var Wechat = /** @class */ (function () {
      *
      * @see <a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_7&index=6">网页端调起支付API</a>
      */
-    Wechat.pay = function (param) {
+    /**
+       * 调起微信支付
+       * Tip
+       * 配置安全支付域名
+       * jssdk 配置
+       *
+       * @see <a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_7&index=6">网页端调起支付API</a>
+       */
+    Wechat.pay = /**
+       * 调起微信支付
+       * Tip
+       * 配置安全支付域名
+       * jssdk 配置
+       *
+       * @see <a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_7&index=6">网页端调起支付API</a>
+       */
+    function (param) {
         param.timestamp = param.timestamp || param.timeStamp;
         var callPay = new Promise(function (resolve, reject) {
             param.success = function (res) {
@@ -119,7 +148,10 @@ var Wechat = /** @class */ (function () {
         return url;
     };
     // 微信登录
-    Wechat.redirectToWechatLogin = function (appId, redirectUrl) {
+    // 微信登录
+    Wechat.redirectToWechatLogin = 
+    // 微信登录
+    function (appId, redirectUrl) {
         var state = "wechat_auth_" + new Date().getTime();
         localStorage.setItem(Wechat.COOKIE_KEY_AUTH_STATE, state);
         var url = 'https://open.weixin.qq.com/connect/oauth2/authorize'
@@ -132,34 +164,52 @@ var Wechat = /** @class */ (function () {
         window.location.replace(url);
     };
     //获取地理位置接口
-    Wechat.getNetworkType = function () {
+    //获取地理位置接口
+    Wechat.getNetworkType = 
+    //获取地理位置接口
+    function () {
         return this.sign().then(function (res) {
             return new Promise(function (resolve, reject) { wx.getNetworkType({ success: resolve, fail: reject }); });
         });
     };
     //获取地理位置接口
-    Wechat.getLocation = function () {
+    //获取地理位置接口
+    Wechat.getLocation = 
+    //获取地理位置接口
+    function () {
         return new Promise(function (resolve, reject) {
             wx.getLocation({
                 type: 'gcj02',
+                // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
                 success: resolve,
                 fail: reject
             });
         });
     };
     //使用微信内置地图查看位置接口
-    Wechat.openLocation = function (location) {
+    //使用微信内置地图查看位置接口
+    Wechat.openLocation = 
+    //使用微信内置地图查看位置接口
+    function (location) {
         wx.openLocation({
             latitude: location.latitude,
+            // 纬度，浮点数，范围为90 ~ -90
             longitude: location.longitude,
+            // 经度，浮点数，范围为180 ~ -180。
             name: '',
+            // 位置名
             address: '',
+            // 地址详情说明
             scale: 14,
+            // 地图缩放级别,整形值,范围从1~28。默认为最大
             infoUrl: '' // 在查看位置界面底部显示的超链接,可点击跳转
         });
     };
     // 打开地址
-    Wechat.openAddress = function () {
+    // 打开地址
+    Wechat.openAddress = 
+    // 打开地址
+    function () {
         return this.sign().then(function () {
             return new Promise(function (resolve, reject) {
                 return wx.openAddress({ success: resolve, fail: reject });
@@ -167,14 +217,20 @@ var Wechat = /** @class */ (function () {
         });
     };
     // 预览图片
-    Wechat.previewImage = function (urls, current) {
+    // 预览图片
+    Wechat.previewImage = 
+    // 预览图片
+    function (urls, current) {
         wx.previewImage({
             current: current || '',
+            // 当前显示图片的http链接
             urls: urls // 需要预览的图片http链接列表
         });
     };
     /** 关闭窗口 */
-    Wechat.closeWindow = function () {
+    /** 关闭窗口 */
+    Wechat.closeWindow = /** 关闭窗口 */
+    function () {
         typeof wx != "undefined" && wx && wx.closeWindow();
         location.href = "about:blank";
         window.close();
@@ -185,7 +241,9 @@ var Wechat = /** @class */ (function () {
             _this.sign().then(function () {
                 wx.scanQRCode({
                     needResult: 1,
+                    // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
                     scanType: ["qrCode", "barCode"],
+                    // 可以指定扫二维码还是一维码，默认二者都有
                     success: function (res) { return resolve(res.resultStr); }
                 });
             }).catch(reject);
@@ -195,7 +253,15 @@ var Wechat = /** @class */ (function () {
      * @param  menuItems 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
      * @see {@link Wechat.MENU_ITEMS}
      */
-    Wechat.hideMenuItems = function () {
+    /**
+       * @param  menuItems 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+       * @see {@link Wechat.MENU_ITEMS}
+       */
+    Wechat.hideMenuItems = /**
+       * @param  menuItems 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+       * @see {@link Wechat.MENU_ITEMS}
+       */
+    function () {
         var menuItems = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             menuItems[_i] = arguments[_i];
@@ -206,7 +272,15 @@ var Wechat = /** @class */ (function () {
      * @param  menuItems 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
      * @see {@link Wechat.MENU_ITEMS}
      */
-    Wechat.showMenuItems = function () {
+    /**
+       * @param  menuItems 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+       * @see {@link Wechat.MENU_ITEMS}
+       */
+    Wechat.showMenuItems = /**
+       * @param  menuItems 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+       * @see {@link Wechat.MENU_ITEMS}
+       */
+    function () {
         var menuItems = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             menuItems[_i] = arguments[_i];
@@ -214,7 +288,10 @@ var Wechat = /** @class */ (function () {
         this.sign().then(function () { return wx.showMenuItems({ menuList: menuItems }); }).catch(function (e) { return console.log(e); });
     };
     // 是否是微信浏览器中打开
-    Wechat.isWechatAgent = function () {
+    // 是否是微信浏览器中打开
+    Wechat.isWechatAgent = 
+    // 是否是微信浏览器中打开
+    function () {
         var ua = navigator.userAgent.toLowerCase();
         var r = ua.match(/MicroMessenger/i);
         return r && r[0] == "micromessenger" || false;
@@ -292,7 +369,10 @@ var Wechat = /** @class */ (function () {
         });
     };
     // 录音时间超过一分钟没有停止的时候会执行 complete 回调
-    Wechat.onVoiceRecordEnd = function () {
+    // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+    Wechat.onVoiceRecordEnd = 
+    // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+    function () {
         return Observable.create(function (subscriber) {
             wx.onVoiceRecordEnd({
                 fail: function (res) {
@@ -309,7 +389,9 @@ var Wechat = /** @class */ (function () {
         return Observable.create(function (subscriber) {
             wx.translateVoice({
                 localId: localId,
+                // 需要识别的音频的本地  Id，由录音相关接口获得
                 isShowProgressTips: 1,
+                // 默认为1，显示进度提示
                 success: function (res) {
                     // 语音识别的结果
                     subscriber.next(res.translateResult);
@@ -362,29 +444,51 @@ var Wechat = /** @class */ (function () {
     Wechat.MENU_ITEMS = {
         //基本类
         EXPOSE_ARTICLE: "menuItem:exposeArticle",
+        //举报:
         SET_FONT: "menuItem:setFont",
+        //调整字体:
         DAY_MODE: "menuItem:dayMode",
+        //日间模式:
         NIGHT_MODE: "menuItem:nightMode",
+        //夜间模式:
         REFRESH: "menuItem:refresh",
+        //刷新:
         PROFILE: "menuItem:profile",
+        //查看公众号（已添加）
         ADD_CONTACT: "menuItem:addContact",
+        //查看公众号（未添加）
         //传播类
         SHARE_APP_MESSAGE: "menuItem:share:appMessage",
+        //发送给朋友
         SHARE_TIME_LINE: "menuItem:share:timeline",
+        //分享到朋友圈
         SHARE_QQ: "menuItem:share:qq",
+        //分享到QQ
         SHARE_WEIBO_APP: "menuItem:share:weiboApp",
+        //分享到Weibo
         SHARE_FACEBOOK: "menuItem:share:facebook",
+        //分享到FB:
         SHARE_QZONE: "menuItem:share:QZone",
+        //分享到 QQ 空间
         FAVORITE: "menuItem:favorite",
+        //收藏
         // 保护类
         EDIT_TAG: "menuItem:editTag",
+        //编辑标签:
         DELETE: "menuItem:delete",
+        //删除:
         COPY_URL: "menuItem:copyUrl",
+        //复制链接:
         ORIGIN_PAGE: "menuItem:originPage",
+        //原网页:
         READ_MORE: "menuItem:readMode",
+        //阅读模式:
         OPEN_WITH_QQ_BROWSER: "menuItem:openWithQQBrowser",
+        //在QQ浏览器中打开:
         OPEN_WITH_SAFARI: "menuItem:openWithSafari",
+        //在Safari中打开:
         SHARE_EMAIL: "menuItem:share:email",
+        //邮件:
         SHARE_BRAND: "menuItem:share:brand" //一些特殊公众号:
     };
     Wechat.HIDES = [
@@ -436,10 +540,30 @@ export { WXLocation };
  * @property success   用户确认分享后执行的回调函数 type:0:好友， 1：朋友圈
  * @property cancel    用户取消分享后执行的回调函数 type:0:好友， 1：朋友圈
  */
-var ShareOptions = /** @class */ (function () {
+var /**
+ * 微信分享
+ *
+ * @property title     分享标题
+ * @property desc      分享描述
+ * @property link      分享链接
+ * @property imgUrl    分享图标
+ * @property success   用户确认分享后执行的回调函数 type:0:好友， 1：朋友圈
+ * @property cancel    用户取消分享后执行的回调函数 type:0:好友， 1：朋友圈
+ */
+ShareOptions = /** @class */ (function () {
     function ShareOptions() {
     }
     return ShareOptions;
 }());
+/**
+ * 微信分享
+ *
+ * @property title     分享标题
+ * @property desc      分享描述
+ * @property link      分享链接
+ * @property imgUrl    分享图标
+ * @property success   用户确认分享后执行的回调函数 type:0:好友， 1：朋友圈
+ * @property cancel    用户取消分享后执行的回调函数 type:0:好友， 1：朋友圈
+ */
 export { ShareOptions };
 //# sourceMappingURL=wechat.js.map

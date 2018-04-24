@@ -1,7 +1,10 @@
 /**
  * 处理分页UI
  */
-var PageDelegate = /** @class */ (function () {
+var /**
+ * 处理分页UI
+ */
+PageDelegate = /** @class */ (function () {
     function PageDelegate(refresh, loadMore) {
         this.refresh = refresh;
         this.loadMore = loadMore;
@@ -26,5 +29,8 @@ var PageDelegate = /** @class */ (function () {
     };
     return PageDelegate;
 }());
+/**
+ * 处理分页UI
+ */
 export { PageDelegate };
 //# sourceMappingURL=page-delegate.js.map

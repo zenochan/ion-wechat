@@ -1,9 +1,3 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 import { InjectionToken, NgModule } from '@angular/core';
 import { IonicModule } from "ionic-angular";
 export var UI;
@@ -13,7 +7,6 @@ export var CONFIG = new InjectionToken("IonWechatConfig");
 var IonWechatModule = /** @class */ (function () {
     function IonWechatModule() {
     }
-    IonWechatModule_1 = IonWechatModule;
     // constructor(ui: WeuiService, data: DataService, events: Events, @Inject(CONFIG) options: Options)
     // {
     //   IonWechatModule.DEBUG = options.debug;
@@ -28,26 +21,52 @@ var IonWechatModule = /** @class */ (function () {
      * @param {Options} options
      * @returns {ModuleWithProviders}
      */
-    IonWechatModule.forRoot = function (options) {
+    // constructor(ui: WeuiService, data: DataService, events: Events, @Inject(CONFIG) options: Options)
+    // {
+    //   IonWechatModule.DEBUG = options.debug;
+    //   Photo.BASE_URL = options.imgBaseUrl;
+    //
+    //   UI = ui;
+    //   Data = data;
+    //   IonEvent = events;
+    // }
+    /**
+       * @see [fuction calls are not supported in decorators](https://github.com/angular/angular-cli/issues/9358)
+       * @param {Options} options
+       * @returns {ModuleWithProviders}
+       */
+    IonWechatModule.forRoot = 
+    // constructor(ui: WeuiService, data: DataService, events: Events, @Inject(CONFIG) options: Options)
+    // {
+    //   IonWechatModule.DEBUG = options.debug;
+    //   Photo.BASE_URL = options.imgBaseUrl;
+    //
+    //   UI = ui;
+    //   Data = data;
+    //   IonEvent = events;
+    // }
+    /**
+       * @see [fuction calls are not supported in decorators](https://github.com/angular/angular-cli/issues/9358)
+       * @param {Options} options
+       * @returns {ModuleWithProviders}
+       */
+    function (options) {
         return {
-            ngModule: IonWechatModule_1,
+            ngModule: IonWechatModule,
             providers: [
                 { provide: CONFIG, useValue: options },
             ]
         };
     };
     IonWechatModule.DEBUG = false;
-    IonWechatModule = IonWechatModule_1 = __decorate([
-        NgModule({
-            imports: [
-                IonicModule
-                // HttpClientModule
-                // IonWechatProvidersModule
-            ]
-        })
-    ], IonWechatModule);
+    IonWechatModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [
+                        IonicModule
+                    ]
+                },] },
+    ];
     return IonWechatModule;
-    var IonWechatModule_1;
 }());
 export { IonWechatModule };
 var Options = /** @class */ (function () {

@@ -1,11 +1,7 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 import { Injectable } from "@angular/core";
 import "rxjs/add/operator/map";
+import { Storage } from "@ionic/storage";
+import { Events } from "ionic-angular";
 var ENV = { DEBUG: false };
 /*
  Generated class for the DataService provider.
@@ -23,7 +19,6 @@ var DataService = /** @class */ (function () {
                 _this.events.publish("user:ready", _this.user);
         }).catch();
     }
-    DataService_1 = DataService;
     DataService.prototype.setUser = function (user) {
         console.warn("set user");
         this.user = user;
@@ -33,7 +28,7 @@ var DataService = /** @class */ (function () {
             this.user.expiresIn = Date.now() + (ENV.DEBUG ? 1000 : 86400000 * 7);
             this.events.publish("user:ready", this.user);
         }
-        this.storage.set(DataService_1.KEY_USER, user);
+        this.storage.set(DataService.KEY_USER, user);
     };
     DataService.prototype.getUser = function () {
         var _this = this;
@@ -41,10 +36,10 @@ var DataService = /** @class */ (function () {
             return Promise.resolve(this.user);
         }
         else {
-            return this.storage.get(DataService_1.KEY_USER)
+            return this.storage.get(DataService.KEY_USER)
                 .then(function (user) {
                 if (user && user.expiresIn < Date.now()) {
-                    _this.storage.remove(DataService_1.KEY_USER);
+                    _this.storage.remove(DataService.KEY_USER);
                     return null;
                 }
                 _this.user = user;
@@ -73,11 +68,15 @@ var DataService = /** @class */ (function () {
         }
     };
     DataService.KEY_USER = 'user';
-    DataService = DataService_1 = __decorate([
-        Injectable()
-    ], DataService);
+    DataService.decorators = [
+        { type: Injectable },
+    ];
+    /** @nocollapse */
+    DataService.ctorParameters = function () { return [
+        { type: Storage, },
+        { type: Events, },
+    ]; };
     return DataService;
-    var DataService_1;
 }());
 export { DataService };
 //# sourceMappingURL=data.service.js.map

@@ -1,9 +1,3 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 import { Pipe } from '@angular/core';
 import "../extends.date";
 /**
@@ -31,11 +25,11 @@ var ZdatePipe = /** @class */ (function () {
         value = value.replace(/-/g, "/");
         return new Date(Date.parse(value)).format(args[0] || "yyyy/MM/dd");
     };
-    ZdatePipe = __decorate([
-        Pipe({
-            name: 'zdate',
-        })
-    ], ZdatePipe);
+    ZdatePipe.decorators = [
+        { type: Pipe, args: [{
+                    name: 'zdate',
+                },] },
+    ];
     return ZdatePipe;
 }());
 export { ZdatePipe };

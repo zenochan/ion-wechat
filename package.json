@@ -5,8 +5,10 @@
   "homepage": "https://zenochan.github.io/",
   "private": false,
   "scripts": {
+    "ngc": "ngc",
+    "publishPackage": "npm run build && npm publish",
     "clean": "ionic-app-scripts clean",
-    "build": "ionic-app-scripts build",
+    "build": "rm -rf aot dist && npm run ngc",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",

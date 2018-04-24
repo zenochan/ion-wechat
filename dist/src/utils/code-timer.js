@@ -6,9 +6,9 @@ var CodeTimer = /** @class */ (function () {
         this.type = type;
         this.wait = 0;
         /**
-         * 等待间隔(s)，默认60
-         * @type {number}
-         */
+           * 等待间隔(s)，默认60
+           * @type {number}
+           */
         this.during = 60;
         Data.get("code:wait:" + this.type).then(function (wait) {
             if (!wait)
@@ -21,7 +21,10 @@ var CodeTimer = /** @class */ (function () {
         });
     }
     // 进入等待
-    CodeTimer.prototype.intoWait = function () {
+    // 进入等待
+    CodeTimer.prototype.intoWait = 
+    // 进入等待
+    function () {
         var _this = this;
         if (this.wait == 0)
             this.wait = 60;
@@ -35,7 +38,13 @@ var CodeTimer = /** @class */ (function () {
     /**
      * 在 ionWillUnload 方法中调用
      */
-    CodeTimer.prototype.saveStatus = function () {
+    /**
+       * 在 ionWillUnload 方法中调用
+       */
+    CodeTimer.prototype.saveStatus = /**
+       * 在 ionWillUnload 方法中调用
+       */
+    function () {
         Data.set("code:wait:" + this.type, new Date().getTime() + this.wait * 1000).then();
     };
     return CodeTimer;
