@@ -16,4 +16,4 @@ let pipes = [
   imports: [],
   exports: [...pipes]
 })
-export class PipesModule {}
+export class IonWechatPipesModule {}

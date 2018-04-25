@@ -5,21 +5,18 @@
   "homepage": "https://zenochan.github.io/",
   "private": false,
   "scripts": {
-    "publish": "npm-run-all ngc cp-*",
     "ngc": "ngc",
     "clean": "ionic-app-scripts clean",
-    "clean-build": "ionic-app-scripts clean",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve",
-    "cp-readme": "cp README.md dist/",
-    "cp-doc": "cp -r doc dist/",
-    "cp-conf": "cp -r conf dist/",
-    "cp-weui": "cp -r src/weui/ dist/weui"
+    "ionic:serve": "ionic-app-scripts serve"
   },
   "files": [
     "dist/",
-    "scss/"
+    "src/",
+    "conf/",
+    "doc/",
+    "README.md"
   ],
   "dependencies": {
     "@angular/animations": "5.2.9",

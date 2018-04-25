@@ -9,17 +9,17 @@ var pipes = [
     ZdatePipe,
     Photo
 ];
-var PipesModule = /** @class */ (function () {
-    function PipesModule() {
+var IonWechatPipesModule = /** @class */ (function () {
+    function IonWechatPipesModule() {
     }
-    PipesModule.decorators = [
+    IonWechatPipesModule.decorators = [
         { type: NgModule, args: [{
                     declarations: pipes.slice(),
                     imports: [],
                     exports: pipes.slice()
                 },] },
     ];
-    return PipesModule;
+    return IonWechatPipesModule;
 }());
-export { PipesModule };
+export { IonWechatPipesModule };
 //# sourceMappingURL=pipes.module.js.map
