@@ -1,5 +1,14 @@
 import { Injectable, Pipe } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
+/**
+ * [src]="src | sanitizer : 'HTML'"
+ * - NONE
+ * - HTML
+ * - STYLE
+ * - SCRIPT
+ * - URL
+ * - RESOURCE_URL
+ */
 var Sanitizer = /** @class */ (function () {
     function Sanitizer(sanitiser) {
         this.sanitiser = sanitiser;

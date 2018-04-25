@@ -1,6 +1,15 @@
 import {Injectable, Pipe, PipeTransform} from "@angular/core";
 import {DomSanitizer} from "@angular/platform-browser";
 
+/**
+ * [src]="src | sanitizer : 'HTML'"
+ * - NONE
+ * - HTML
+ * - STYLE
+ * - SCRIPT
+ * - URL
+ * - RESOURCE_URL
+ */
 @Pipe({name: 'sanitizer'})
 @Injectable()
 export class Sanitizer implements PipeTransform
