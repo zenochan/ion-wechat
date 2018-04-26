@@ -5,7 +5,7 @@
   "homepage": "https://zenochan.github.io/",
   "private": false,
   "scripts": {
-    "ngc": "ngc",
+    "ngc": "ngc -p tsconfig-module.json",
     "clean": "ionic-app-scripts clean",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
@@ -18,7 +18,7 @@
     "doc/",
     "README.md"
   ],
-  "dependencies": {
+  "devDependencies": {
     "@angular/animations": "5.2.9",
     "@angular/common": "5.2.9",
     "@angular/compiler": "5.2.9",
@@ -36,9 +36,7 @@
     "ionicons": "3.0.0",
     "rxjs": "5.5.8",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.26"
-  },
-  "devDependencies": {
+    "zone.js": "0.8.26",
     "@ionic/app-scripts": "3.1.8",
     "gulp": "^3.9.1",
     "gulp-replace": "^0.6.1",
