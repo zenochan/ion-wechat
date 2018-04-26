@@ -18,6 +18,9 @@
     "doc/",
     "README.md"
   ],
+  "dependencies": {
+
+  },
   "devDependencies": {
     "@angular/animations": "5.2.9",
     "@angular/common": "5.2.9",
