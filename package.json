@@ -19,6 +19,8 @@
     "README.md"
   ],
   "dependencies": {
+  },
+  "devDependencies": {
     "@angular/animations": "5.2.9",
     "@angular/common": "5.2.9",
     "@angular/compiler": "5.2.9",
@@ -37,8 +39,6 @@
     "rxjs": "5.5.8",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"
-  },
-  "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
     "gulp": "^3.9.1",
     "gulp-replace": "^0.6.1",
