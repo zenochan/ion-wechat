@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { IonWechatModule } from "../ion-wechat.module";
+import { StickyPageModule } from "../pages/sticky/sticky.module";
+import { IonWechatDirectivesModule } from "../directives/ion-wechat-directives.module";
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -22,7 +24,9 @@ var AppModule = /** @class */ (function () {
                             debug: true,
                             userKey: "user",
                             imgBaseUrl: ""
-                        })
+                        }),
+                        StickyPageModule,
+                        IonWechatDirectivesModule
                     ],
                     bootstrap: [IonicApp],
                     entryComponents: [

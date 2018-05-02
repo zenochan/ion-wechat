@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {UI} from "../../ion-wechat.module";
+import {Page} from "ionic-angular/navigation/nav-util";
+import {StickyPage} from "../sticky/sticky";
 
 @Component({
   selector: 'page-home',
@@ -8,10 +9,15 @@ import {UI} from "../../ion-wechat.module";
 })
 export class HomePage
 {
+  pages: Page[] = [
+    StickyPage
+  ];
+
 
   constructor(public navCtrl: NavController)
   {
-    UI.showLoading();
+    console.log(StickyPage.name)
+
   }
 
 }

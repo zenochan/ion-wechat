@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { UI } from "../../ion-wechat.module";
+import { StickyPage } from "../sticky/sticky";
 var HomePage = /** @class */ (function () {
     function HomePage(navCtrl) {
         this.navCtrl = navCtrl;
-        UI.showLoading();
+        this.pages = [
+            StickyPage
+        ];
+        console.log(StickyPage.name);
     }
     HomePage.decorators = [
         { type: Component, args: [{
