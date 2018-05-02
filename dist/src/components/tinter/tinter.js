@@ -3,8 +3,12 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
  * 着色
  */
 var TinterComponent = /** @class */ (function () {
-    function TinterComponent() {
+    function TinterComponent(el) {
         this.color = 'orange';
+        el.nativeElement.style.overflow = 'hidden';
+        el.nativeElement.style.display = 'block';
+        el.nativeElement.style.margin = '0';
+        el.nativeElement.style.padding = '0';
     }
     TinterComponent.prototype.ngOnInit = function () {
         this.el.nativeElement.style.webkitFilter = "drop-shadow(100vw 0 " + this.color + ")";
@@ -12,10 +16,14 @@ var TinterComponent = /** @class */ (function () {
     TinterComponent.decorators = [
         { type: Component, args: [{
                     selector: 'tinter',
-                    templateUrl: 'tinter.html'
+                    styles: ["\n\n    .tinter-body {\n      position: relative;\n      left: -100vw;\n    }\n  "],
+                    template: "\n    <div class=\"tinter-body\" #body>\n      <ng-content></ng-content>\n    </div>\n  ",
                 },] },
     ];
     /** @nocollapse */
+    TinterComponent.ctorParameters = function () { return [
+        { type: ElementRef, },
+    ]; };
     TinterComponent.propDecorators = {
         "color": [{ type: Input },],
         "el": [{ type: ViewChild, args: ["body",] },],

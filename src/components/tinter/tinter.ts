@@ -5,7 +5,18 @@ import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
  */
 @Component({
   selector: 'tinter',
-  templateUrl: 'tinter.html'
+  styles: [`
+
+    .tinter-body {
+      position: relative;
+      left: -100vw;
+    }
+  `],
+  template: `
+    <div class="tinter-body" #body>
+      <ng-content></ng-content>
+    </div>
+  `,
 })
 export class TinterComponent implements OnInit
 {
@@ -14,6 +25,14 @@ export class TinterComponent implements OnInit
 
   @ViewChild("body")
   el: ElementRef;
+
+  constructor(el: ElementRef)
+  {
+    el.nativeElement.style.overflow = 'hidden';
+    el.nativeElement.style.display = 'block';
+    el.nativeElement.style.margin = '0';
+    el.nativeElement.style.padding = '0';
+  }
 
   ngOnInit(): void
   {

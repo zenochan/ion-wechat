@@ -5,5 +5,6 @@ import { ElementRef, OnInit } from '@angular/core';
 export declare class TinterComponent implements OnInit {
     color: string;
     el: ElementRef;
+    constructor(el: ElementRef);
     ngOnInit(): void;
 }
