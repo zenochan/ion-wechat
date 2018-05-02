@@ -8,8 +8,8 @@ import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
   styles: [`
 
     .tinter-body {
+      display: inline-block;
       position: relative;
-      left: -100vw;
     }
   `],
   template: `
@@ -22,19 +22,27 @@ export class TinterComponent implements OnInit
 {
   colorValue: string = 'orange';
 
+  /**
+   * @param {string} value 着色颜色
+   */
   @Input('color')
   set color(value: string)
   {
     this.colorValue = value;
-    this.el.nativeElement.style.webkitFilter = `drop-shadow(100vw 0 ${this.colorValue})`;
+    this.filter();
   }
 
-  @ViewChild("body")
-  el: ElementRef;
+  @Input()
+  offsetX = 8;
+  @Input()
+  offsetY = 8;
 
-  constructor(el: ElementRef)
+  @ViewChild("body")
+  body: ElementRef;
+
+  constructor(private el: ElementRef)
   {
-    // el.nativeElement.style.overflow = 'hidden';
+    el.nativeElement.style.overflow = 'hidden';
     el.nativeElement.style.display = 'block';
     el.nativeElement.style.margin = '0';
     el.nativeElement.style.padding = '0';
@@ -42,8 +50,17 @@ export class TinterComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.el.nativeElement.style.webkitFilter = `drop-shadow(100vw 0 ${this.colorValue})`;
+    this.filter();
   }
 
+  filter()
+  {
+    let w = this.body.nativeElement.clientWidth - this.offsetX;
+    let h = this.body.nativeElement.clientHeight - this.offsetY;
+    this.body.nativeElement.style.left = -w + 'px';
+    this.body.nativeElement.style.top = -h + 'px';
+
+    this.body.nativeElement.style.webkitFilter = `drop-shadow(${w}px ${h}px ${this.colorValue})`;
+  }
 
 }
