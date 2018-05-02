@@ -5,7 +5,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 var TinterComponent = /** @class */ (function () {
     function TinterComponent(el) {
         this.colorValue = 'orange';
-        el.nativeElement.style.overflow = 'hidden';
+        // el.nativeElement.style.overflow = 'hidden';
         el.nativeElement.style.display = 'block';
         el.nativeElement.style.margin = '0';
         el.nativeElement.style.padding = '0';

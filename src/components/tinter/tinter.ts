@@ -34,7 +34,7 @@ export class TinterComponent implements OnInit
 
   constructor(el: ElementRef)
   {
-    el.nativeElement.style.overflow = 'hidden';
+    // el.nativeElement.style.overflow = 'hidden';
     el.nativeElement.style.display = 'block';
     el.nativeElement.style.margin = '0';
     el.nativeElement.style.padding = '0';
