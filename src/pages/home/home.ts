@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {Page} from "ionic-angular/navigation/nav-util";
 import {StickyPage} from "../sticky/sticky";
+import {TinterPage} from "../tinter/tinter";
 
 @Component({
   selector: 'page-home',
@@ -10,7 +11,8 @@ import {StickyPage} from "../sticky/sticky";
 export class HomePage
 {
   pages: Page[] = [
-    StickyPage
+    StickyPage,
+    TinterPage
   ];
 
 

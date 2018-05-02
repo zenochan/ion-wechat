@@ -16,6 +16,7 @@ var StickyDirective = /** @class */ (function () {
             var height = event.scrollHeight;
             var width = event.scrollWidth;
             _this.element.nativeElement.hidden = top < _this.height;
+            console.log(top, _this.height);
         });
     };
     StickyDirective.decorators = [

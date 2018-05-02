@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { StickyPage } from './sticky';
 import { IonWechatDirectivesModule } from "../../directives/ion-wechat-directives.module";
+/**
+ * 顶部吸附
+ */
 var StickyPageModule = /** @class */ (function () {
     function StickyPageModule() {
     }
@@ -12,7 +15,7 @@ var StickyPageModule = /** @class */ (function () {
                     ],
                     imports: [
                         IonicPageModule.forChild(StickyPage),
-                        IonWechatDirectivesModule
+                        IonWechatDirectivesModule,
                     ],
                 },] },
     ];

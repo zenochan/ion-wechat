@@ -29,6 +29,7 @@ export class StickyDirective implements OnInit
       let width = event.scrollWidth;
 
       this.element.nativeElement.hidden = top < this.height;
+      console.log(top,this.height);
     })
   }
 }

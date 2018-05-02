@@ -9,6 +9,7 @@ import {HomePage} from '../pages/home/home';
 import {IonWechatModule} from "../ion-wechat.module";
 import {StickyPageModule} from "../pages/sticky/sticky.module";
 import {IonWechatDirectivesModule} from "../directives/ion-wechat-directives.module";
+import {TinterPageModule} from "../pages/tinter/tinter.module";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {IonWechatDirectivesModule} from "../directives/ion-wechat-directives.mod
       imgBaseUrl: ""
     }),
     StickyPageModule,
+    TinterPageModule,
     IonWechatDirectivesModule
   ],
   bootstrap: [IonicApp],

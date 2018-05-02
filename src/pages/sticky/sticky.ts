@@ -9,7 +9,6 @@ import {BasePage} from "../../back";
 })
 export class StickyPage extends BasePage
 {
-
   constructor(public navCtrl: NavController, public navParams: NavParams)
   {
     super("Sticky Header", true);
