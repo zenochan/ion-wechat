@@ -20,8 +20,14 @@ import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 })
 export class TinterComponent implements OnInit
 {
-  @Input()
-  color: string = 'orange';
+  colorValue: string = 'orange';
+
+  @Input('color')
+  set color(value: string)
+  {
+    this.colorValue = value;
+    this.el.nativeElement.style.webkitFilter = `drop-shadow(100vw 0 ${this.colorValue})`;
+  }
 
   @ViewChild("body")
   el: ElementRef;
@@ -36,7 +42,7 @@ export class TinterComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.el.nativeElement.style.webkitFilter = `drop-shadow(100vw 0 ${this.color})`;
+    this.el.nativeElement.style.webkitFilter = `drop-shadow(100vw 0 ${this.colorValue})`;
   }
 
 
