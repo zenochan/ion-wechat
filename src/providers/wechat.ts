@@ -128,6 +128,10 @@ export class Wechat
     }
   }
 
+  /**
+   * @param {ShareOptions} options
+   * @see <a href="https://mp.weixin.qq.com/cgi-bin/announce?action=getannouncement&announce_id=11526372695t90Dn">分享功能调整</a>
+   */
   static onShareWechat(options: ShareOptions)
   {
     this.sign().then(() => {
@@ -513,7 +517,7 @@ export class WXLocation
  * @property desc      分享描述
  * @property link      分享链接
  * @property imgUrl    分享图标
- * @property success   用户确认分享后执行的回调函数 type:0:好友， 1：朋友圈
+ * @property success   用户点击了分享后执行的回调函数 type:0:好友， 1：朋友圈
  * @property cancel    用户取消分享后执行的回调函数 type:0:好友， 1：朋友圈
  */
 export class ShareOptions
@@ -523,5 +527,8 @@ export class ShareOptions
   link: string;
   imgUrl: string;
   success?: (type: 0 | 1) => void;
+  /**
+   * @deprecated 分享功能将没有 cancel 回调
+   */
   cancel?: (type: 0 | 1) => void;
 }

@@ -34,7 +34,19 @@ var Wechat = /** @class */ (function () {
             return null;
         }
     };
-    Wechat.onShareWechat = function (options) {
+    /**
+     * @param {ShareOptions} options
+     * @see <a href="https://mp.weixin.qq.com/cgi-bin/announce?action=getannouncement&announce_id=11526372695t90Dn">分享功能调整</a>
+     */
+    /**
+       * @param {ShareOptions} options
+       * @see <a href="https://mp.weixin.qq.com/cgi-bin/announce?action=getannouncement&announce_id=11526372695t90Dn">分享功能调整</a>
+       */
+    Wechat.onShareWechat = /**
+       * @param {ShareOptions} options
+       * @see <a href="https://mp.weixin.qq.com/cgi-bin/announce?action=getannouncement&announce_id=11526372695t90Dn">分享功能调整</a>
+       */
+    function (options) {
         this.sign().then(function () {
             wx.onMenuShareTimeline({
                 title: options.title + (options.desc ? " | " + options.desc : ""),
@@ -537,7 +549,7 @@ export { WXLocation };
  * @property desc      分享描述
  * @property link      分享链接
  * @property imgUrl    分享图标
- * @property success   用户确认分享后执行的回调函数 type:0:好友， 1：朋友圈
+ * @property success   用户点击了分享后执行的回调函数 type:0:好友， 1：朋友圈
  * @property cancel    用户取消分享后执行的回调函数 type:0:好友， 1：朋友圈
  */
 var /**
@@ -547,7 +559,7 @@ var /**
  * @property desc      分享描述
  * @property link      分享链接
  * @property imgUrl    分享图标
- * @property success   用户确认分享后执行的回调函数 type:0:好友， 1：朋友圈
+ * @property success   用户点击了分享后执行的回调函数 type:0:好友， 1：朋友圈
  * @property cancel    用户取消分享后执行的回调函数 type:0:好友， 1：朋友圈
  */
 ShareOptions = /** @class */ (function () {
@@ -562,7 +574,7 @@ ShareOptions = /** @class */ (function () {
  * @property desc      分享描述
  * @property link      分享链接
  * @property imgUrl    分享图标
- * @property success   用户确认分享后执行的回调函数 type:0:好友， 1：朋友圈
+ * @property success   用户点击了分享后执行的回调函数 type:0:好友， 1：朋友圈
  * @property cancel    用户取消分享后执行的回调函数 type:0:好友， 1：朋友圈
  */
 export { ShareOptions };

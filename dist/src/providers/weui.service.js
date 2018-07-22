@@ -1,14 +1,11 @@
 import { Injectable } from "@angular/core";
 import "rxjs/add/operator/map";
-import { AlertController, LoadingController, ToastController } from "ionic-angular";
-/*
- Generated class for the UikitService provider.
-
- See https://angular.io/docs/ts/latest/guide/dependency-injection.html
- for more info on providers and Angular 2 DI.
- */
+import { ActionSheetController, AlertController, LoadingController, ModalController, PopoverController, ToastController } from "ionic-angular";
 var WeuiService = /** @class */ (function () {
-    function WeuiService(loadingCtrl, alertCtrl, toastCtrl) {
+    function WeuiService(modal, popover, actionSheet, loadingCtrl, alertCtrl, toastCtrl) {
+        this.modal = modal;
+        this.popover = popover;
+        this.actionSheet = actionSheet;
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.toastCtrl = toastCtrl;
@@ -72,6 +69,9 @@ var WeuiService = /** @class */ (function () {
     ];
     /** @nocollapse */
     WeuiService.ctorParameters = function () { return [
+        { type: ModalController, },
+        { type: PopoverController, },
+        { type: ActionSheetController, },
         { type: LoadingController, },
         { type: AlertController, },
         { type: ToastController, },

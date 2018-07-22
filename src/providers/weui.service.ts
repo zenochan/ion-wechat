@@ -1,23 +1,29 @@
 import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
-import {AlertController, Loading, LoadingController, ToastController, ToastOptions} from "ionic-angular";
+import {
+  ActionSheetController,
+  AlertController,
+  Loading,
+  LoadingController,
+  ModalController, PopoverController,
+  ToastController,
+  ToastOptions
+} from "ionic-angular";
 
-/*
- Generated class for the UikitService provider.
-
- See https://angular.io/docs/ts/latest/guide/dependency-injection.html
- for more info on providers and Angular 2 DI.
- */
 @Injectable()
 export class WeuiService
 {
-  constructor(private loadingCtrl: LoadingController,
-              private alertCtrl: AlertController,
-              private toastCtrl: ToastController)
-  {
-  }
+  constructor(
+      public modal: ModalController,
+      public popover: PopoverController,
+      public actionSheet: ActionSheetController,
+      private loadingCtrl: LoadingController,
+      private alertCtrl: AlertController,
+      private toastCtrl: ToastController
+  )
+  { }
 
-  showLoading():Loading
+  showLoading(): Loading
   {
     let loading = this.loadingCtrl.create({
       spinner: 'hide',

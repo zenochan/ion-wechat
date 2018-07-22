@@ -1,10 +1,13 @@
 import "rxjs/add/operator/map";
-import { AlertController, Loading, LoadingController, ToastController, ToastOptions } from "ionic-angular";
+import { ActionSheetController, AlertController, Loading, LoadingController, ModalController, PopoverController, ToastController, ToastOptions } from "ionic-angular";
 export declare class WeuiService {
+    modal: ModalController;
+    popover: PopoverController;
+    actionSheet: ActionSheetController;
     private loadingCtrl;
     private alertCtrl;
     private toastCtrl;
-    constructor(loadingCtrl: LoadingController, alertCtrl: AlertController, toastCtrl: ToastController);
+    constructor(modal: ModalController, popover: PopoverController, actionSheet: ActionSheetController, loadingCtrl: LoadingController, alertCtrl: AlertController, toastCtrl: ToastController);
     showLoading(): Loading;
     toastShort(message: string, position?: "top" | "bottom" | "middle"): Promise<any>;
     toast(options: ToastOptions): Promise<any>;

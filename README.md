@@ -38,3 +38,10 @@ app.scss
 ```scss
 @import "../assets/css/weui.ionicx.css";
 ```
+
+
+#### components
+mode: 0:aspect-fit, 1: scale-fill ,2 :aspect-fit
+- <smart-img url="imgUrl" mode="0(default)|1|2"/>
+
+

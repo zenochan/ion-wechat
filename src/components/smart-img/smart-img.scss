@@ -1,0 +1,37 @@
+smart-img {
+  display: block;
+  position: relative;
+  .img-con {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .scale-fill {
+    background-size: 100% 100%;
+  }
+  .aspect-fit {
+    background-size: contain;
+  }
+
+  .todo {
+    background-color: #4abbde !important;
+    &:after {
+      position: absolute;
+      display: inline-block;
+      content: "IMG";
+      font-weight: bold;
+      text-align: center;
+      color: white;
+      font-size: 13px;
+      line-height: 20px;
+      height: 20px;
+      width: 100%;
+      bottom: 0;
+      overflow: hidden;
+      //background-color: #888888;
+    }
+  }
+}
