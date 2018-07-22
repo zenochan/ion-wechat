@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {Page} from "ionic-angular/navigation/nav-util";
 import {StickyPage} from "../sticky/sticky";
 import {TinterPage} from "../tinter/tinter";
+import {MediaPlayerPage} from "../media-player/media-player";
 
 @Component({
   selector: 'page-home',
@@ -12,14 +13,12 @@ export class HomePage
 {
   pages: Page[] = [
     StickyPage,
-    TinterPage
+    TinterPage,
+    MediaPlayerPage
   ];
-
 
   constructor(public navCtrl: NavController)
   {
-    console.log(StickyPage.name)
-
   }
 
 }

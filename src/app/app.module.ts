@@ -10,6 +10,7 @@ import {IonWechatModule} from "../ion-wechat.module";
 import {StickyPageModule} from "../pages/sticky/sticky.module";
 import {IonWechatDirectivesModule} from "../directives/ion-wechat-directives.module";
 import {TinterPageModule} from "../pages/tinter/tinter.module";
+import {MediaPlayerPageModule} from "../pages/media-player/media-player.module";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {TinterPageModule} from "../pages/tinter/tinter.module";
     }),
     StickyPageModule,
     TinterPageModule,
+    MediaPlayerPageModule,
     IonWechatDirectivesModule
   ],
   bootstrap: [IonicApp],
