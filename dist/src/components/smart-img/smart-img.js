@@ -18,7 +18,7 @@ var SmartImgComponent = /** @class */ (function () {
     SmartImgComponent.decorators = [
         { type: Component, args: [{
                     selector: 'smart-img',
-                    templateUrl: 'smart-img.html',
+                    template: "\n    <div class=\"img-con\" [style.backgroundImage]=\"'url('+(url)+')'\"\n         [ngClass]=\"{'scale-fill': mode==1,'aspect-fit': mode==2,'todo': !url}\"\n    >\n      <ng-content></ng-content>\n    </div>\n  ",
                 },] },
     ];
     /** @nocollapse */

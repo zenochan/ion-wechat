@@ -9,7 +9,14 @@ import {Component, Input} from '@angular/core';
  */
 @Component({
   selector: 'smart-img',
-  templateUrl: 'smart-img.html',
+  template:`
+    <div class="img-con" [style.backgroundImage]="'url('+(url)+')'"
+         [ngClass]="{'scale-fill': mode==1,'aspect-fit': mode==2,'todo': !url}"
+    >
+      <ng-content></ng-content>
+    </div>
+  `,
+  // templateUrl: 'smart-img.html',
 })
 export class SmartImgComponent
 {
