@@ -9,7 +9,49 @@ import {Component, Input} from '@angular/core';
  */
 @Component({
   selector: 'smart-img',
-  template:`
+  styles: [`
+    smart-img {
+      display: block;
+      position: relative;
+    }
+
+    smart-img .img-con {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    smart-img .scale-fill {
+      background-size: 100% 100%;
+    }
+
+    smart-img .aspect-fit {
+      background-size: contain;
+    }
+
+    smart-img .todo {
+      background-color: #4abbde !important;
+    }
+
+    smart-img .todo:after {
+      position: absolute;
+      display: inline-block;
+      content: "IMG";
+      font-weight: bold;
+      text-align: center;
+      color: white;
+      font-size: 13px;
+      line-height: 20px;
+      height: 20px;
+      width: 100%;
+      bottom: 0;
+      overflow: hidden;
+    }
+  `],
+  template: `
     <div class="img-con" [style.backgroundImage]="'url('+(url)+')'"
          [ngClass]="{'scale-fill': mode==1,'aspect-fit': mode==2,'todo': !url}"
     >
