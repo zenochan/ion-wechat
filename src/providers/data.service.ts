@@ -77,8 +77,13 @@ export class DataService
       action(this.user);
       console.warn("user ready");
     } else {
-      this.events.subscribe(event, action);
+      let handler = (user) => {
+        action(user);
+        this.events.unsubscribe(event, handler)
+      };
+      this.events.subscribe(event, handler);
       console.warn("user no ready");
     }
   }
+
 }
