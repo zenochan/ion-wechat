@@ -92,6 +92,11 @@ export declare class Wechat {
     private static sign();
     static startRecord(): Observable<string>;
     static stopRecord(): Observable<string>;
+    /**
+     * 打开公众号信息页
+     * @param biz MzAwNDEyODA5MQ==
+     */
+    static home(biz: string): void;
     private static onVoiceRecordEnd();
     static translateVoice(localId: any): Observable<string>;
 }
@@ -127,7 +132,6 @@ export declare class WXLocation {
  * @property link      分享链接
  * @property imgUrl    分享图标
  * @property success   用户点击了分享后执行的回调函数 type:0:好友， 1：朋友圈
- * @property cancel    用户取消分享后执行的回调函数 type:0:好友， 1：朋友圈
  */
 export declare class ShareOptions {
     title: string;
@@ -135,8 +139,4 @@ export declare class ShareOptions {
     link: string;
     imgUrl: string;
     success?: (type: 0 | 1) => void;
-    /**
-     * @deprecated 分享功能将没有 cancel 回调
-     */
-    cancel?: (type: 0 | 1) => void;
 }

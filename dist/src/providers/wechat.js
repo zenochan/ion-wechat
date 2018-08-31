@@ -55,7 +55,6 @@ var Wechat = /** @class */ (function () {
                 link: options.link,
                 imgUrl: options.imgUrl,
                 success: function () { return options.success && options.success(1); },
-                cancel: function () { return options.cancel && options.cancel(1); }
             });
             wx.onMenuShareAppMessage({
                 title: options.title,
@@ -71,7 +70,6 @@ var Wechat = /** @class */ (function () {
                 dataUrl: null,
                 // 如果type是music或video，则要提供数据链接，默认为空
                 success: function () { return options.success && options.success(0); },
-                cancel: function () { return options.cancel && options.cancel(0); }
             });
         }).catch(function (err) { return console.log("jssdk 签名失败", err); });
     };
@@ -380,6 +378,21 @@ var Wechat = /** @class */ (function () {
             });
         });
     };
+    /**
+     * 打开公众号信息页
+     * @param biz MzAwNDEyODA5MQ==
+     */
+    /**
+       * 打开公众号信息页
+       * @param biz MzAwNDEyODA5MQ==
+       */
+    Wechat.home = /**
+       * 打开公众号信息页
+       * @param biz MzAwNDEyODA5MQ==
+       */
+    function (biz) {
+        window.open("https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=" + biz + "&scene=116#wechat_redirect");
+    };
     // 录音时间超过一分钟没有停止的时候会执行 complete 回调
     // 录音时间超过一分钟没有停止的时候会执行 complete 回调
     Wechat.onVoiceRecordEnd = 
@@ -550,7 +563,6 @@ export { WXLocation };
  * @property link      分享链接
  * @property imgUrl    分享图标
  * @property success   用户点击了分享后执行的回调函数 type:0:好友， 1：朋友圈
- * @property cancel    用户取消分享后执行的回调函数 type:0:好友， 1：朋友圈
  */
 var /**
  * 微信分享
@@ -560,7 +572,6 @@ var /**
  * @property link      分享链接
  * @property imgUrl    分享图标
  * @property success   用户点击了分享后执行的回调函数 type:0:好友， 1：朋友圈
- * @property cancel    用户取消分享后执行的回调函数 type:0:好友， 1：朋友圈
  */
 ShareOptions = /** @class */ (function () {
     function ShareOptions() {
@@ -575,7 +586,6 @@ ShareOptions = /** @class */ (function () {
  * @property link      分享链接
  * @property imgUrl    分享图标
  * @property success   用户点击了分享后执行的回调函数 type:0:好友， 1：朋友圈
- * @property cancel    用户取消分享后执行的回调函数 type:0:好友， 1：朋友圈
  */
 export { ShareOptions };
 //# sourceMappingURL=wechat.js.map
