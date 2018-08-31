@@ -97,6 +97,7 @@ export declare class Wechat {
     static startRecord(): Observable<string>;
     static stopRecord(): Observable<string>;
     /**
+     * 获取公众号biz 的方法：打开公众号-查看历史消息-query[biz]
      * 打开公众号信息页
      * @param biz MzAwNDEyODA5MQ==
      */

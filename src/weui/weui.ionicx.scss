@@ -61,3 +61,29 @@ input, textarea {
   border-top: none !important;
 }
 
+
+// 安卓按钮去阴影
+.button-md {
+  box-shadow: none !important;
+}
+
+// 安卓 tabs 样式调整
+.tabs-md {
+
+  .tabbar {
+    height: 56px !important;
+  }
+
+  .tab-button-icon.icon-md {
+    font-size: 30px !important;
+
+    &:before {
+      margin: 0 !important;
+    }
+
+  }
+
+  .tab-button-text {
+    margin-top: -4px !important;
+  }
+}
