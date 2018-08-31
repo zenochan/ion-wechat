@@ -35,43 +35,43 @@ var Wechat = /** @class */ (function () {
         }
     };
     /**
-     * @param {ShareOptions} options
-     * @see <a href="https://mp.weixin.qq.com/cgi-bin/announce?action=getannouncement&announce_id=11526372695t90Dn">分享功能调整</a>
+     * @return Promise<number> 0-好友，1-朋友圈
      */
     /**
-       * @param {ShareOptions} options
-       * @see <a href="https://mp.weixin.qq.com/cgi-bin/announce?action=getannouncement&announce_id=11526372695t90Dn">分享功能调整</a>
+       * @return Promise<number> 0-好友，1-朋友圈
        */
     Wechat.onShareWechat = /**
-       * @param {ShareOptions} options
-       * @see <a href="https://mp.weixin.qq.com/cgi-bin/announce?action=getannouncement&announce_id=11526372695t90Dn">分享功能调整</a>
+       * @return Promise<number> 0-好友，1-朋友圈
        */
     function (options) {
-        this.sign().then(function () {
-            wx.onMenuShareTimeline({
-                title: options.title + (options.desc ? " | " + options.desc : ""),
-                desc: null,
-                // 分享到朋友圈没有 desc 字段，拼接到 title 上
-                link: options.link,
-                imgUrl: options.imgUrl,
-                success: function () { return options.success && options.success(1); },
+        return this.sign().catch(function (err) { return console.log("jssdk 签名失败", err); })
+            .then(function () {
+            return new Promise(function (resolve) {
+                wx.onMenuShareTimeline({
+                    title: options.title + (options.desc ? " | " + options.desc : ""),
+                    desc: null,
+                    // 分享到朋友圈没有 desc 字段，拼接到 title 上
+                    link: options.link,
+                    imgUrl: options.imgUrl,
+                    success: function () { return resolve(1); }
+                });
+                wx.onMenuShareAppMessage({
+                    title: options.title,
+                    // 分享标题
+                    desc: options.desc,
+                    // 分享描述
+                    link: options.link,
+                    // 分享链接
+                    imgUrl: options.imgUrl,
+                    // 分享图标
+                    type: 'link',
+                    // 分享类型,music、video或link，不填默认为link
+                    dataUrl: null,
+                    // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function () { return resolve(0); }
+                });
             });
-            wx.onMenuShareAppMessage({
-                title: options.title,
-                // 分享标题
-                desc: options.desc,
-                // 分享描述
-                link: options.link,
-                // 分享链接
-                imgUrl: options.imgUrl,
-                // 分享图标
-                type: 'link',
-                // 分享类型,music、video或link，不填默认为link
-                dataUrl: null,
-                // 如果type是music或video，则要提供数据链接，默认为空
-                success: function () { return options.success && options.success(0); },
-            });
-        }).catch(function (err) { return console.log("jssdk 签名失败", err); });
+        });
     };
     /**
      * 调起微信支付
@@ -555,37 +555,4 @@ var WXLocation = /** @class */ (function () {
     return WXLocation;
 }());
 export { WXLocation };
-/**
- * 微信分享
- *
- * @property title     分享标题
- * @property desc      分享描述
- * @property link      分享链接
- * @property imgUrl    分享图标
- * @property success   用户点击了分享后执行的回调函数 type:0:好友， 1：朋友圈
- */
-var /**
- * 微信分享
- *
- * @property title     分享标题
- * @property desc      分享描述
- * @property link      分享链接
- * @property imgUrl    分享图标
- * @property success   用户点击了分享后执行的回调函数 type:0:好友， 1：朋友圈
- */
-ShareOptions = /** @class */ (function () {
-    function ShareOptions() {
-    }
-    return ShareOptions;
-}());
-/**
- * 微信分享
- *
- * @property title     分享标题
- * @property desc      分享描述
- * @property link      分享链接
- * @property imgUrl    分享图标
- * @property success   用户点击了分享后执行的回调函数 type:0:好友， 1：朋友圈
- */
-export { ShareOptions };
 //# sourceMappingURL=wechat.js.map

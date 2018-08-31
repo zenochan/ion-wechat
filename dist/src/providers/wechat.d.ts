@@ -41,10 +41,14 @@ export declare class Wechat {
     static configSigner(signer: () => Promise<WXSign>): void;
     static getAuthCode(): string;
     /**
-     * @param {ShareOptions} options
-     * @see <a href="https://mp.weixin.qq.com/cgi-bin/announce?action=getannouncement&announce_id=11526372695t90Dn">分享功能调整</a>
+     * @return Promise<number> 0-好友，1-朋友圈
      */
-    static onShareWechat(options: ShareOptions): void;
+    static onShareWechat(options: {
+        title: string;
+        desc: string;
+        link: string;
+        imgUrl: string;
+    }): Promise<number>;
     /**
      * 调起微信支付
      * Tip
@@ -123,20 +127,4 @@ export declare class WXLocation {
     latitude: number;
     longitude: number;
     errMsg: string;
-}
-/**
- * 微信分享
- *
- * @property title     分享标题
- * @property desc      分享描述
- * @property link      分享链接
- * @property imgUrl    分享图标
- * @property success   用户点击了分享后执行的回调函数 type:0:好友， 1：朋友圈
- */
-export declare class ShareOptions {
-    title: string;
-    desc: string;
-    link: string;
-    imgUrl: string;
-    success?: (type: 0 | 1) => void;
 }
