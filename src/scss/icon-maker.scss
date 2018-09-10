@@ -40,6 +40,7 @@
 
   .ion-ios-#{$name}-outline:before,
   .ion-md-#{$name}[ng-reflect-is-active=false]:before,
+  .tab-button[aria-selected=false] .ion-md-#{$name}:before,
   .ion-md-#{$name}-outline:before {
     background: url($src-o);
     @include icon-common
