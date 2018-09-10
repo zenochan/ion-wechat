@@ -44,4 +44,11 @@
     background: url($src-o);
     @include icon-common
   }
+
+  .tab-button[aria-selected=true] {
+    .ion-md-#{$name}:before {
+      background: url($src);
+      @include icon-common
+    }
+  }
 }
