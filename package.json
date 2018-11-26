@@ -12,7 +12,7 @@
     "ionic:serve": "ionic-app-scripts serve"
   },
   "files": [
-    "dist/",
+    "lib/",
     "src/",
     "conf/",
     "doc/",

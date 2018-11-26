@@ -1,0 +1,5 @@
+<div class="sliding-container" *ngIf="isShow" (click)="isShow = false">
+  <div class="sliding-content" (click)="$event.stopPropagation()">
+    <ng-content></ng-content>
+  </div>
+</div>

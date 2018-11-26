@@ -23,4 +23,9 @@
       <button type="button" id="full-screen">Full-Screen</button>
     </div>
   </div>
+
+  <button (click)="showMenu = true">显示 sliding menu</button>
+
 </ion-content>
+
+<sliding-menu [show]="showMenu"></sliding-menu>

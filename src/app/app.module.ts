@@ -11,6 +11,8 @@ import {StickyPageModule} from "../pages/sticky/sticky.module";
 import {IonWechatDirectivesModule} from "../directives/ion-wechat-directives.module";
 import {TinterPageModule} from "../pages/tinter/tinter.module";
 import {MediaPlayerPageModule} from "../pages/media-player/media-player.module";
+import {SlidingMenuPageModule} from "../pages/sliding-menu/sliding-menu.module";
+import {IonWechatComponentsModule} from "../components/ion-wechat-components.module";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {MediaPlayerPageModule} from "../pages/media-player/media-player.module";
     StickyPageModule,
     TinterPageModule,
     MediaPlayerPageModule,
-    IonWechatDirectivesModule
+    IonWechatDirectivesModule,
+    IonWechatComponentsModule,
+    SlidingMenuPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,7 +43,7 @@ import {MediaPlayerPageModule} from "../pages/media-player/media-player.module";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+  ],
 })
 export class AppModule
 {

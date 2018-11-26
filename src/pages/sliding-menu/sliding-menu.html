@@ -1,0 +1,37 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <div class="weui-flex">
+
+        <div class="weui-flex__item">
+          sliding menu
+        </div>
+        <ion-icon class="button" name="menu" (click)="showMenu = !showMenu"></ion-icon>
+      </div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div>内容内容内容</div>
+  <div>内容内容内容</div>
+  <div>内容内容内容</div>
+  <div>内容内容内容</div>
+  <div>内容内容内容</div>
+  <div>内容内容内容</div>
+  <div>内容内容内容</div>
+  <ion-tabs>
+    <ion-tab [root]="root1" tabTitle="123"></ion-tab>
+    <ion-tab [root]="root2" tabTitle="123"></ion-tab>
+    <ion-tab [root]="root3" tabTitle="123"></ion-tab>
+  </ion-tabs>
+</ion-content>
+
+<sliding-menu [show]="showMenu">
+  <div>菜单</div>
+  <div>菜单</div>
+  <div>菜单</div>
+  <div>菜单</div>
+</sliding-menu>

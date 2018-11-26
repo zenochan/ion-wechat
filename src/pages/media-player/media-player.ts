@@ -15,6 +15,7 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 })
 export class MediaPlayerPage
 {
+  showMenu = false;
 
 
   playButtonText = "播放";

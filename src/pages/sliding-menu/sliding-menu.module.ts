@@ -1,16 +1,16 @@
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {IonicPageModule} from 'ionic-angular';
-import {MediaPlayerPage} from './media-player';
+import {SlidingMenuPage} from './sliding-menu';
 import {IonWechatComponentsModule} from "../../components/ion-wechat-components.module";
 
 @NgModule({
   declarations: [
-    MediaPlayerPage,
+    SlidingMenuPage
   ],
   imports: [
-    IonicPageModule.forChild(MediaPlayerPage),
+    IonicPageModule.forChild(SlidingMenuPage),
       IonWechatComponentsModule
   ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class MediaPlayerPageModule {}
+export class SlidingMenuPageModule {}
