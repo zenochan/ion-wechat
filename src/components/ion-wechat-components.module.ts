@@ -6,8 +6,7 @@ import {SlidingMenuComponent} from "./sliding-menu/sliding-menu";
 
 let components = [
   TinterComponent,
-  SmartImgComponent,
-  SlidingMenuComponent
+  SmartImgComponent
 ];
 
 @NgModule({declarations: components, imports: [CommonModule], exports: components})
