@@ -13,7 +13,7 @@ import {Component, Input} from '@angular/core';
     smart-img {
       display: block;
     }
-  `, `
+
     .img-con {
       height: 100%;
       width: 100%;
@@ -22,7 +22,7 @@ import {Component, Input} from '@angular/core';
       background-repeat: no-repeat;
       background-size: cover;
     }
-  `, `
+
     .scale-fill {
       background-size: 100% 100%;
     }
@@ -34,7 +34,6 @@ import {Component, Input} from '@angular/core';
     .todo {
       border: 2px solid gray;
     }
-
   `],
   template: `
     <div class="img-con"
@@ -48,7 +47,6 @@ import {Component, Input} from '@angular/core';
       <ng-content></ng-content>
     </div>
   `,
-  // templateUrl: 'smart-img.html',
 })
 export class SmartImgComponent
 {
