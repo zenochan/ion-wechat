@@ -5,10 +5,10 @@
  * Components.
  */
 export declare class SmartImgComponent {
-    url: string;
+    src: string;
     /**
-     *  0 AspectFill
-     *  1 ScaleToFill 拉升
+     *  0 AspectFill 拉伸
+     *  1 ScaleToFill 完整显示在中间
      *  2 AspectFit 裁剪中间
      * @type {0|1|2}
      */
