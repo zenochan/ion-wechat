@@ -69,7 +69,7 @@ export declare class Wechat {
     }): Promise<any>;
     private static payOld(sign);
     static shareUrl(param: Object): string;
-    static redirectToWechatLogin(appId: string, redirectUrl: string): void;
+    static redirectToWechatLogin(appId: string, redirectUrl: string, proxy?: string): void;
     static getNetworkType(): Promise<any>;
     static getLocation(): Promise<WXLocation>;
     static openLocation(location: {

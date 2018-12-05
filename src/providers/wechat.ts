@@ -250,12 +250,12 @@ export class Wechat
   }
 
 // 微信登录
-  static redirectToWechatLogin(appId: string, redirectUrl: string): void
+  static redirectToWechatLogin(appId: string, redirectUrl: string, proxy?: string): void
   {
     let state = "wechat_auth_" + new Date().getTime();
     localStorage.setItem(Wechat.COOKIE_KEY_AUTH_STATE, state);
 
-    let url = 'https://open.weixin.qq.com/connect/oauth2/authorize'
+    let url = (proxy || 'https://open.weixin.qq.com/connect/oauth2/authorize')
         + '?appid=' + appId
         + '&redirect_uri=' + encodeURIComponent(redirectUrl)
         + '&response_type=code'
@@ -387,8 +387,7 @@ export class Wechat
       if (typeof query_string[pair[0]] === 'undefined') {
         query_string[pair[0]] = pair[1];
         // If second entry with this name
-      }
-      else if (typeof query_string[pair[0]] === 'string') {
+      } else if (typeof query_string[pair[0]] === 'string') {
         query_string[pair[0]] = [query_string[pair[0]], pair[1]];
         // If third or later entry with this name
       } else {
