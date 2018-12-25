@@ -12,12 +12,14 @@
     "ionic:serve": "ionic-app-scripts serve"
   },
   "files": [
-    "lib/",
+    "dist/",
     "src/",
     "conf/",
     "doc/",
     "README.md"
   ],
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "dependencies": {},
   "devDependencies": {
     "@angular/animations": "5.2.9",
@@ -49,5 +51,5 @@
     "ts-md5": "^1.2.4",
     "typescript": "~2.6.2"
   },
-  "description": "An Ionic project"
+  "description": "Ionic 微信开发包"
 }
