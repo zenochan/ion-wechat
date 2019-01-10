@@ -1,1 +1,0 @@
-[{"__symbolic":"module","version":4,"metadata":{"Photo":{"__symbolic":"class","decorators":[{"__symbolic":"call","expression":{"__symbolic":"reference","module":"@angular/core","name":"Pipe","line":2,"character":1},"arguments":[{"name":"photo"}]}],"members":{"transform":[{"__symbolic":"method"}]},"statics":{"BASE_URL":""}},"transPhoto":{"__symbolic":"function"}}}]

@@ -1,4 +1,4 @@
-// npm i --save-dev gulp gulp-rev gulp-rev-replace gulp-replace run-sequence
+// npm i --save-dev gulp@3.9.1 gulp-rev gulp-rev-replace gulp-replace run-sequence
 
 let gulp = require('gulp');
 let rev = require('gulp-rev');
@@ -16,7 +16,6 @@ gulp.task('cdnReplace', function () {
   if (!cdn) return;
   // 七牛镜像 cdn
   gulp.src('./www/index.html')
-    .pipe(replace('src="http://h5cdn.churgo.com/assets/', 'src="' + cdn + 'http://cdn.ammonfood.com/duoli/assets/'))
     .pipe(replace('src="build/', 'src="' + cdn + 'build/'))
     .pipe(gulp.dest('./www/'));
 });

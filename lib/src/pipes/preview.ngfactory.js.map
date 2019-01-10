@@ -1,1 +1,0 @@
-{"version":3,"file":"preview.ngfactory.js","sourceRoot":"","sources":["../../../src/pipes/preview.ngfactory.ts"],"names":[],"mappings":"","sourcesContent":["import * as i0 from '@angular/core';\ni0.ComponentFactory;\n"]}
