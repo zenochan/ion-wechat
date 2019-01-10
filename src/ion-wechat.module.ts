@@ -26,6 +26,7 @@ export class IonWechatModule
   {
     IonWechatModule.DEBUG = options.debug;
     Photo.BASE_URL = options.imgBaseUrl;
+    DataService.KEY_USER = options.userKey || "user";
 
     UI = ui;
     Data = data;

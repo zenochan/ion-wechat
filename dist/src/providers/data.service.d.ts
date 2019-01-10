@@ -4,7 +4,7 @@ import { Events } from "ionic-angular";
 export declare class DataService {
     storage: Storage;
     events: Events;
-    private static KEY_USER;
+    static KEY_USER: string;
     private user;
     constructor(storage: Storage, events: Events);
     setUser(user: any): void;

@@ -13,6 +13,7 @@ var IonWechatModule = /** @class */ (function () {
     function IonWechatModule(ui, data, events, options) {
         IonWechatModule.DEBUG = options.debug;
         Photo.BASE_URL = options.imgBaseUrl;
+        DataService.KEY_USER = options.userKey || "user";
         UI = ui;
         Data = data;
         IonEvent = events;
