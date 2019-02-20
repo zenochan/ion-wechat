@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Wechat} from "../../providers/wechat";
 
 /**
@@ -17,7 +17,7 @@ import {Wechat} from "../../providers/wechat";
 
   ],
   template: `
-    <div [innerHTML]="_html" #container (click)="click($event)"></div>
+    <div [innerHTML]="_html" (click)="click($event)"></div>
   `
 })
 export class RichTextComponent
@@ -25,7 +25,6 @@ export class RichTextComponent
   private _html: string;
   private imgUrls: string[];
 
-  @ViewChild("container") elementRef: ElementRef;
 
   @Input()
   get src(){
