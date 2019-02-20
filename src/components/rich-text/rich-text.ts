@@ -28,11 +28,11 @@ export class RichTextComponent
   @ViewChild("container") elementRef: ElementRef;
 
   @Input()
-  get html(){
+  get src(){
     return this._html;
   }
 
-  set html(html: string)
+  set src(html: string)
   {
     this._html = html;
     this.imgUrls = [];
