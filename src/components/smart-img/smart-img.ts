@@ -12,6 +12,8 @@ import {Component, Input} from '@angular/core';
   styles: [`
     smart-img {
       display: block;
+      width: 200px;
+      height: 200px;
     }
 
     .img-con {
