@@ -18,7 +18,7 @@ var SmartImgComponent = /** @class */ (function () {
     SmartImgComponent.decorators = [
         { type: Component, args: [{
                     selector: 'smart-img',
-                    styles: ["\n    smart-img {\n      display: block;\n    }\n\n    .img-con {\n      height: 100%;\n      width: 100%;\n      overflow: hidden;\n      background-position: center center;\n      background-repeat: no-repeat;\n      background-size: cover;\n    }\n\n    .scale-fill {\n      background-size: 100% 100%;\n    }\n\n    .aspect-fit {\n      background-size: contain;\n    }\n\n    .todo {\n      border: 2px solid gray;\n    }\n  "],
+                    styles: ["\n    smart-img {\n      display: block;\n      width: 200px;\n      height: 200px;\n    }\n\n    .img-con {\n      height: 100%;\n      width: 100%;\n      overflow: hidden;\n      background-position: center center;\n      background-repeat: no-repeat;\n      background-size: cover;\n    }\n\n    .scale-fill {\n      background-size: 100% 100%;\n    }\n\n    .aspect-fit {\n      background-size: contain;\n    }\n\n    .todo {\n      border: 2px solid gray;\n    }\n  "],
                     template: "\n    <div class=\"img-con\"\n         [style.backgroundImage]=\"'url('+(src)+')'\"\n         [ngClass]=\"{\n           'scale-fill': mode==1,\n           'aspect-fit': mode==2,\n           'todo': !src\n         }\"\n    >\n      <ng-content></ng-content>\n    </div>\n  ",
                 },] },
     ];

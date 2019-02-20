@@ -1,6 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {Wechat} from "../../providers/wechat";
 
+// import {Wechat} from "../../providers/wechat";
+
 /**
  * 实现微信浏览器内点击预览
  */
@@ -17,17 +19,18 @@ import {Wechat} from "../../providers/wechat";
 
   ],
   template: `
-    <div [innerHTML]="_html" (click)="click($event)"></div>
+    <div [innerHTML]="_html |sanitizer:'HTML'" (click)="click($event)"></div>
   `
 })
 export class RichTextComponent
 {
-  private _html: string;
+  _html: string = "";
   private imgUrls: string[];
 
 
   @Input()
-  get src(){
+  get src()
+  {
     return this._html;
   }
 

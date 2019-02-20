@@ -7,6 +7,7 @@
 import * as i0 from "@angular/core";
 import * as i1 from "./ion-wechat-components.module";
 import * as i2 from "@angular/common";
-var IonWechatComponentsModuleNgFactory = i0.ɵcmf(i1.IonWechatComponentsModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, []], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i2.NgLocalization, i2.NgLocaleLocalization, [i0.LOCALE_ID, [2, i2.ɵa]]), i0.ɵmpd(512, i2.CommonModule, i2.CommonModule, []), i0.ɵmpd(512, i1.IonWechatComponentsModule, i1.IonWechatComponentsModule, [])]); });
+import * as i3 from "../pipes/pipes.module";
+var IonWechatComponentsModuleNgFactory = i0.ɵcmf(i1.IonWechatComponentsModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, []], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i2.NgLocalization, i2.NgLocaleLocalization, [i0.LOCALE_ID, [2, i2.ɵa]]), i0.ɵmpd(512, i2.CommonModule, i2.CommonModule, []), i0.ɵmpd(512, i3.IonWechatPipesModule, i3.IonWechatPipesModule, []), i0.ɵmpd(512, i1.IonWechatComponentsModule, i1.IonWechatComponentsModule, [])]); });
 export { IonWechatComponentsModuleNgFactory as IonWechatComponentsModuleNgFactory };
 //# sourceMappingURL=ion-wechat-components.module.ngfactory.js.map

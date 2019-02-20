@@ -1,4 +1,4 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {TinterComponent} from './tinter/tinter';
 import {SmartImgComponent} from "./smart-img/smart-img";
 import {CommonModule} from "@angular/common";
@@ -13,10 +13,10 @@ let components = [
 
 @NgModule({
   declarations: components,
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+  exports: components,
   imports: [
     CommonModule,
     IonWechatPipesModule
-  ], exports: components
+  ]
 })
 export class IonWechatComponentsModule {}
