@@ -27,7 +27,11 @@ export class RichTextComponent
 
   @ViewChild("container") elementRef: ElementRef;
 
-  @Input("html")
+  @Input()
+  get html(){
+    return this._html;
+  }
+
   set html(html: string)
   {
     this._html = html;
