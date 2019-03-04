@@ -59,18 +59,21 @@ var DataService = /** @class */ (function () {
     DataService.prototype.doOnUserReady = function (action, event) {
         var _this = this;
         if (event === void 0) { event = "user:ready"; }
-        if (this.user) {
-            action(this.user);
-            console.warn("user ready");
-        }
-        else {
-            var handler_1 = function (user) {
-                action(user);
-                _this.events.unsubscribe(event, handler_1);
-            };
-            this.events.subscribe(event, handler_1);
-            console.warn("user no ready");
-        }
+        this.getUser().then(function (user) {
+            _this.user = _this.user || user;
+            if (_this.user) {
+                action(_this.user);
+                console.warn("user ready");
+            }
+            else {
+                var handler_1 = function (user) {
+                    action(user);
+                    _this.events.unsubscribe(event, handler_1);
+                };
+                _this.events.subscribe(event, handler_1);
+                console.warn("user no ready");
+            }
+        });
     };
     DataService.KEY_USER = 'user';
     DataService.decorators = [

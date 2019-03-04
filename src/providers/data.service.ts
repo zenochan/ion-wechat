@@ -73,17 +73,20 @@ export class DataService
 
   doOnUserReady(action: (user: any) => void, event: string = "user:ready")
   {
-    if (this.user) {
-      action(this.user);
-      console.warn("user ready");
-    } else {
-      let handler = (user) => {
-        action(user);
-        this.events.unsubscribe(event, handler)
-      };
-      this.events.subscribe(event, handler);
-      console.warn("user no ready");
-    }
+    this.getUser().then(user => {
+      this.user = this.user || user;
+      if (this.user) {
+        action(this.user);
+        console.warn("user ready");
+      } else {
+        let handler = (user) => {
+          action(user);
+          this.events.unsubscribe(event, handler)
+        };
+        this.events.subscribe(event, handler);
+        console.warn("user no ready");
+      }
+    });
   }
 
 }
