@@ -316,6 +316,8 @@ export class Wechat
 // 预览图片
   static previewImage(urls: Array<string>, current ?: string)
   {
+    if (!urls || urls.length == 0) return;
+
     wx.previewImage({
       current: current || '', // 当前显示图片的http链接
       urls: urls // 需要预览的图片http链接列表

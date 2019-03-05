@@ -1,10 +1,5 @@
-/**
- * Generated class for the SmartImgComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 export declare class SmartImgComponent {
+    enablePreview: boolean;
     src: string;
     /**
      *  0 AspectFill 拉伸
@@ -14,4 +9,5 @@ export declare class SmartImgComponent {
      */
     mode: 0 | 1 | 2;
     constructor();
+    preview($event: any): void;
 }

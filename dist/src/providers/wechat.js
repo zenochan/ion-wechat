@@ -231,6 +231,8 @@ var Wechat = /** @class */ (function () {
     Wechat.previewImage = 
     // 预览图片
     function (urls, current) {
+        if (!urls || urls.length == 0)
+            return;
         wx.previewImage({
             current: current || '',
             // 当前显示图片的http链接

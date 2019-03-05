@@ -1,12 +1,7 @@
 import {Component, Input} from '@angular/core';
+import {Wechat} from "../../providers/wechat";
 
 
-/**
- * Generated class for the SmartImgComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'smart-img',
   styles: [`
@@ -14,6 +9,8 @@ import {Component, Input} from '@angular/core';
       display: block;
       width: 200px;
       height: 200px;
+      /* 圆角生效*/
+      overflow: hidden;
     }
 
     .img-con {
@@ -39,6 +36,7 @@ import {Component, Input} from '@angular/core';
   `],
   template: `
     <div class="img-con"
+         (click)="preview($event)"
          [style.backgroundImage]="'url('+(src)+')'"
          [ngClass]="{
            'scale-fill': mode==1,
@@ -52,6 +50,8 @@ import {Component, Input} from '@angular/core';
 })
 export class SmartImgComponent
 {
+  @Input()
+  enablePreview: boolean = false;
 
   @Input()
   src: string;
@@ -70,4 +70,11 @@ export class SmartImgComponent
 
   }
 
+  preview($event)
+  {
+    if (this.enablePreview) {
+      Wechat.previewImage([this.src]);
+      $event.stopPropagation();
+    }
+  }
 }
