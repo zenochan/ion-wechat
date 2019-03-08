@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { StickyDirective } from './sticky/sticky';
+import { FixScrollDirective } from "./fix-scroll/fix-scroll";
 var IonWechatDirectivesModule = /** @class */ (function () {
     function IonWechatDirectivesModule() {
     }
     IonWechatDirectivesModule.decorators = [
         { type: NgModule, args: [{
-                    declarations: [StickyDirective],
+                    declarations: [StickyDirective, FixScrollDirective],
                     imports: [],
-                    exports: [StickyDirective]
+                    exports: [StickyDirective, FixScrollDirective]
                 },] },
     ];
     return IonWechatDirectivesModule;
