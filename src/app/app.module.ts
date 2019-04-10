@@ -18,6 +18,7 @@ import {IonWechatComponentsModule} from "../components/ion-wechat-components.mod
     MyApp,
     HomePage
   ],
+
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),

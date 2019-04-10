@@ -1,5 +1,9 @@
 import "rxjs/add/operator/map";
 import { Observable } from "rxjs/Observable";
+// 注入微信 js
+var jssdk = document.createElement('script');
+jssdk.src = 'https://res.wx.qq.com/open/js/jweixin-1.2.0.js';
+document.getElementsByTagName('head')[0].appendChild(jssdk);
 /**
  * js sdk
  * http://res.wx.qq.com/open/js/jweixin-1.1.0.js
