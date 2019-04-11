@@ -28,7 +28,7 @@ export class DataService
     }).catch();
 
     if (Wechat.getUrlParam('clear')) {
-      Data.storage.clear();
+      storage.clear();
       location.replace(location.href.split('?')[0]);
     }
   }
