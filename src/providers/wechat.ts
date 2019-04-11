@@ -272,17 +272,17 @@ export class Wechat
     return Observable.create(sub => {
       let code = this.getAuthCode();
       if (!code) {
-        let state = "wechat_auth_" + new Date().getTime();
-        localStorage.setItem(Wechat.COOKIE_KEY_AUTH_STATE, state);
+        let op: any = options || {};
+        op.scope = op.scope || 'snsapi_userinfo';
+        op.state = "wechat_auth_" + new Date().getTime();
+        op.redirect_uri = encodeURIComponent(options.redirectUrl || location.href.split('?')[0]);
+        op.response_type = 'code';
 
-        let url = (options.proxy || 'https://open.weixin.qq.com/connect/oauth2/authorize')
-            + '?appid=' + options.appId
-            + '&component_appid=' + (options.appId || '')
-            + '&redirect_uri=' + encodeURIComponent(options.redirectUrl || location.href.split('?')[0])
-            + '&response_type=code'
-            + '&scope=' + (options.scope || 'snsapi_userinfo')
-            + '&state=' + state
-            + '#wechat_redirect';
+        localStorage.setItem(Wechat.COOKIE_KEY_AUTH_STATE, op.state);
+
+        let url = (options.proxy || 'https://open.weixin.qq.com/connect/oauth2/authorize');
+        let query = Object.keys(op).map(key => `${key}=${op[key]}`).join('&');
+        url += `?${query}#wechat_redirect`;
         window.location.replace(url);
         sub.complete();
       } else {

@@ -170,16 +170,15 @@ var Wechat = /** @class */ (function () {
         return Observable.create(function (sub) {
             var code = _this.getAuthCode();
             if (!code) {
-                var state = "wechat_auth_" + new Date().getTime();
-                localStorage.setItem(Wechat.COOKIE_KEY_AUTH_STATE, state);
-                var url = (options.proxy || 'https://open.weixin.qq.com/connect/oauth2/authorize')
-                    + '?appid=' + options.appId
-                    + '&component_appid=' + (options.appId || '')
-                    + '&redirect_uri=' + encodeURIComponent(options.redirectUrl || location.href.split('?')[0])
-                    + '&response_type=code'
-                    + '&scope=' + (options.scope || 'snsapi_userinfo')
-                    + '&state=' + state
-                    + '#wechat_redirect';
+                var op_1 = options || {};
+                op_1.scope = op_1.scope || 'snsapi_userinfo';
+                op_1.state = "wechat_auth_" + new Date().getTime();
+                op_1.redirect_uri = encodeURIComponent(options.redirectUrl || location.href.split('?')[0]);
+                op_1.response_type = 'code';
+                localStorage.setItem(Wechat.COOKIE_KEY_AUTH_STATE, op_1.state);
+                var url = (options.proxy || 'https://open.weixin.qq.com/connect/oauth2/authorize');
+                var query = Object.keys(op_1).map(function (key) { return key + "=" + op_1[key]; }).join('&');
+                url += "?" + query + "#wechat_redirect";
                 window.location.replace(url);
                 sub.complete();
             }
