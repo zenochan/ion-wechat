@@ -163,19 +163,31 @@ var Wechat = /** @class */ (function () {
     };
     // 微信登录
     // 微信登录
-    Wechat.redirectToWechatLogin = 
+    Wechat.code = 
     // 微信登录
-    function (appId, redirectUrl, proxy) {
-        var state = "wechat_auth_" + new Date().getTime();
-        localStorage.setItem(Wechat.COOKIE_KEY_AUTH_STATE, state);
-        var url = (proxy || 'https://open.weixin.qq.com/connect/oauth2/authorize')
-            + '?appid=' + appId
-            + '&redirect_uri=' + encodeURIComponent(redirectUrl)
-            + '&response_type=code'
-            + '&scope=snsapi_userinfo'
-            + '&state=' + state
-            + '#wechat_redirect';
-        window.location.replace(url);
+    function (options) {
+        var _this = this;
+        return Observable.create(function (sub) {
+            var code = _this.getAuthCode();
+            if (!code) {
+                var state = "wechat_auth_" + new Date().getTime();
+                localStorage.setItem(Wechat.COOKIE_KEY_AUTH_STATE, state);
+                var url = (options.proxy || 'https://open.weixin.qq.com/connect/oauth2/authorize')
+                    + '?appid=' + options.appId
+                    + '?component_appid=' + (options.appId || '')
+                    + '&redirect_uri=' + encodeURIComponent(options.redirectUrl || location.href.split('?')[0])
+                    + '&response_type=code'
+                    + '&scope=' + (options.scope || 'snsapi_userinfo')
+                    + '&state=' + state
+                    + '#wechat_redirect';
+                window.location.replace(url);
+                sub.complete();
+            }
+            else {
+                sub.next(code);
+                sub.complete();
+            }
+        });
     };
     //获取地理位置接口
     //获取地理位置接口

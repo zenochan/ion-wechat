@@ -18,6 +18,7 @@ document.getElementsByTagName('head')[0].appendChild(jssdk);
  *
  * @see <a href="https://mp.weixin.qq.com/wiki">微信公众平台技术文档</a>
  */
+
 export class Wechat
 {
   public static DEBUG = false;
@@ -255,23 +256,41 @@ export class Wechat
     return url;
   }
 
-// 微信登录
-  static redirectToWechatLogin(appId: string, redirectUrl: string, proxy?: string): void
+  // 微信登录
+  static code(options: {
+    /** 公众号 app id */
+    appId: string,
+    /** 开放平台 app id */
+    componentAppId?: string,
+    /** 回调 不要 uri encode */
+    redirectUrl?: string,
+    scope?: 'snsapi_userinfo' | 'snsapi_base',
+    /** 代理, 用于非授权域名实现授权业务 */
+    proxy?: string
+  }): Observable<string>
   {
-    let state = "wechat_auth_" + new Date().getTime();
-    localStorage.setItem(Wechat.COOKIE_KEY_AUTH_STATE, state);
+    return Observable.create(sub => {
+      let code = this.getAuthCode();
+      if (!code) {
+        let state = "wechat_auth_" + new Date().getTime();
+        localStorage.setItem(Wechat.COOKIE_KEY_AUTH_STATE, state);
 
-    let url = (proxy || 'https://open.weixin.qq.com/connect/oauth2/authorize')
-        + '?appid=' + appId
-        + '&redirect_uri=' + encodeURIComponent(redirectUrl)
-        + '&response_type=code'
-        + '&scope=snsapi_userinfo'
-        + '&state=' + state
-        + '#wechat_redirect';
-
-    window.location.replace(url);
+        let url = (options.proxy || 'https://open.weixin.qq.com/connect/oauth2/authorize')
+            + '?appid=' + options.appId
+            + '?component_appid=' + (options.appId || '')
+            + '&redirect_uri=' + encodeURIComponent(options.redirectUrl || location.href.split('?')[0])
+            + '&response_type=code'
+            + '&scope=' + (options.scope || 'snsapi_userinfo')
+            + '&state=' + state
+            + '#wechat_redirect';
+        window.location.replace(url);
+        sub.complete();
+      } else {
+        sub.next(code);
+        sub.complete();
+      }
+    });
   }
-
 
 //获取地理位置接口
   static getNetworkType(): Promise<any>

@@ -69,7 +69,17 @@ export declare class Wechat {
     }): Promise<any>;
     private static payOld(sign);
     static shareUrl(param: Object): string;
-    static redirectToWechatLogin(appId: string, redirectUrl: string, proxy?: string): void;
+    static code(options: {
+        /** 公众号 app id */
+        appId: string;
+        /** 开放平台 app id */
+        componentAppId?: string;
+        /** 回调 不要 uri encode */
+        redirectUrl?: string;
+        scope?: 'snsapi_userinfo' | 'snsapi_base';
+        /** 代理, 用于非授权域名实现授权业务 */
+        proxy?: string;
+    }): Observable<string>;
     static getNetworkType(): Promise<any>;
     static getLocation(): Promise<WXLocation>;
     static openLocation(location: {
