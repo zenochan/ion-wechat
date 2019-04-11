@@ -259,11 +259,11 @@ export class Wechat
   // 微信登录
   static code(options: {
     /** 公众号 app id */
-    appId: string,
+    appid: string,
     /** 开放平台 app id */
-    componentAppId?: string,
+    component_appid?: string,
     /** 回调 不要 uri encode */
-    redirectUrl?: string,
+    redirect_uri?: string,
     scope?: 'snsapi_userinfo' | 'snsapi_base',
     /** 代理, 用于非授权域名实现授权业务 */
     proxy?: string
@@ -275,7 +275,7 @@ export class Wechat
         let op: any = options || {};
         op.scope = op.scope || 'snsapi_userinfo';
         op.state = "wechat_auth_" + new Date().getTime();
-        op.redirect_uri = encodeURIComponent(options.redirectUrl || location.href.split('?')[0]);
+        op.redirect_uri = encodeURIComponent(options.redirect_uri || location.href.split('?')[0]);
         op.response_type = 'code';
 
         localStorage.setItem(Wechat.COOKIE_KEY_AUTH_STATE, op.state);

@@ -173,7 +173,7 @@ var Wechat = /** @class */ (function () {
                 var op_1 = options || {};
                 op_1.scope = op_1.scope || 'snsapi_userinfo';
                 op_1.state = "wechat_auth_" + new Date().getTime();
-                op_1.redirect_uri = encodeURIComponent(options.redirectUrl || location.href.split('?')[0]);
+                op_1.redirect_uri = encodeURIComponent(options.redirect_uri || location.href.split('?')[0]);
                 op_1.response_type = 'code';
                 localStorage.setItem(Wechat.COOKIE_KEY_AUTH_STATE, op_1.state);
                 var url = (options.proxy || 'https://open.weixin.qq.com/connect/oauth2/authorize');
