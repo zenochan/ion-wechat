@@ -277,7 +277,7 @@ export class Wechat
 
         let url = (options.proxy || 'https://open.weixin.qq.com/connect/oauth2/authorize')
             + '?appid=' + options.appId
-            + '?component_appid=' + (options.appId || '')
+            + '&component_appid=' + (options.appId || '')
             + '&redirect_uri=' + encodeURIComponent(options.redirectUrl || location.href.split('?')[0])
             + '&response_type=code'
             + '&scope=' + (options.scope || 'snsapi_userinfo')

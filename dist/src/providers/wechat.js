@@ -174,7 +174,7 @@ var Wechat = /** @class */ (function () {
                 localStorage.setItem(Wechat.COOKIE_KEY_AUTH_STATE, state);
                 var url = (options.proxy || 'https://open.weixin.qq.com/connect/oauth2/authorize')
                     + '?appid=' + options.appId
-                    + '?component_appid=' + (options.appId || '')
+                    + '&component_appid=' + (options.appId || '')
                     + '&redirect_uri=' + encodeURIComponent(options.redirectUrl || location.href.split('?')[0])
                     + '&response_type=code'
                     + '&scope=' + (options.scope || 'snsapi_userinfo')
