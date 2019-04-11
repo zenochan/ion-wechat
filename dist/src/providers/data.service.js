@@ -20,8 +20,7 @@ var DataService = /** @class */ (function () {
                 _this.events.publish("user:ready", _this.user);
         }).catch();
         if (Wechat.getUrlParam('clear')) {
-            storage.clear();
-            location.replace(location.href.split('?')[0]);
+            storage.clear().then(function (res) { return location.replace(location.href.split('?')[0]); });
         }
     }
     DataService.prototype.setUser = function (user) {
