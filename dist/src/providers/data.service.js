@@ -2,6 +2,8 @@ import { Injectable } from "@angular/core";
 import "rxjs/add/operator/map";
 import { Storage } from "@ionic/storage";
 import { Events } from "ionic-angular";
+import { Wechat } from "./wechat";
+import { Data } from "../ion-wechat.module";
 var ENV = { DEBUG: false };
 /*
  Generated class for the DataService provider.
@@ -18,6 +20,10 @@ var DataService = /** @class */ (function () {
             if (_this.user)
                 _this.events.publish("user:ready", _this.user);
         }).catch();
+        if (Wechat.getUrlParam('clear')) {
+            Data.storage.clear();
+            location.replace(location.href.split('?')[0]);
+        }
     }
     DataService.prototype.setUser = function (user) {
         console.warn("set user");

@@ -2,6 +2,8 @@ import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
 import {Storage} from "@ionic/storage";
 import {Events} from "ionic-angular";
+import {Wechat} from "./wechat";
+import {Data} from "../ion-wechat.module";
 
 
 let ENV = {DEBUG: false};
@@ -24,6 +26,11 @@ export class DataService
     this.getUser().then(user => {
       if (this.user) this.events.publish("user:ready", this.user)
     }).catch();
+
+    if (Wechat.getUrlParam('clear')) {
+      Data.storage.clear();
+      location.replace(location.href.split('?')[0]);
+    }
   }
 
   setUser(user: any)
