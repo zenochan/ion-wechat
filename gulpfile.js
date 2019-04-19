@@ -1,50 +1,45 @@
-// npm i --save-dev gulp gulp-rev gulp-rev-replace gulp-replace gulp-uglify run-sequence
+// npm i --save-dev gulp gulp-rev gulp-rev-replace gulp-replace run-sequence
 
 let gulp = require('gulp');
 let rev = require('gulp-rev');
 let revReplace = require('gulp-rev-replace');
 let replace = require('gulp-replace');
-let uglify = require('gulp-uglify');
 let runSequence = require('run-sequence');
 
-let cdn = 'http://h5cdn.churgo.com/churgo/';
-let cdnDev = 'http://h5cdn.churgo.com/churgo_dev/';
+// 七牛链接
+let cdn = '';
 
-gulp.task('build:prod', function (callback) {
-  // runSequence('cdnReplace', 'rev', 'revReplace', callback);
-  runSequence('rev', 'revReplace', callback);
+gulp.task("default", function (cb) {
+  runSequence("cdnReplace", "rev", "revReplace", cb)
 });
 
-gulp.task('build:dev', function (callback) {
-  // runSequence('cdnReplaceDev', 'rev', ['revReplace', 'jsmin'], callback);
-  runSequence('cdnReplaceDev', 'rev', 'revReplace', callback);
-});
+gulp.task('cdnReplace', function (cb) {
+  if (!cdn) return;
 
-gulp.task('cdnReplace', function () {
   // 七牛镜像 cdn
   gulp.src('./www/index.html')
-    .pipe(replace('src="http://h5cdn.churgo.com/assets/', 'src="' + cdn + 'http://cdn.ammonfood.com/duoli/assets/'))
-    .pipe(replace('src="build/', 'src="' + cdn + 'build/'))
+    .pipe(replace(/src=["']build/g, 'src="' + cdn + 'build'))
+    .pipe(replace(/href=["']build/g, 'href="' + cdn + 'build'))
     .pipe(gulp.dest('./www/'));
+
+  // assets
+  gulp.src('./www/build/main.js')
+    .pipe(replace(/["'](.\/)?assets/g, '"' + cdn + 'assets/'))
+    .pipe(gulp.dest('./www/build/'));
+
+  setTimeout(cb, 200)
 });
 
-gulp.task('cdnReplaceDev', function () {
+gulp.task('cdnReplaceDev', function (cb) {
   // 七牛镜像 cdn
   gulp.src('./www/index.html')
     .pipe(replace('src="http://h5cdn.churgo.com/assets/', 'src="' + cdnDev + 'http://cdn.ammonfood.com/duoli/assets/'))
     .pipe(replace('src="build/', 'src="' + cdnDev + 'build/'))
     .pipe(gulp.dest('./www/'));
+  setTimeout(cb, 200)
 });
 
-gulp.task('jsmin', function () {
-  setTimeout(function () {
-    gulp.src('www/build/*.js')
-      .pipe(uglify())
-      .pipe(gulp.dest('www/build/'));
-  }, 1000);
-});
-
-gulp.task('rev', function () {
+gulp.task('rev', function (cb) {
   gulp.src([
     './www/build/main*',
     './www/build/vendor.js',
@@ -54,16 +49,12 @@ gulp.task('rev', function () {
     .pipe(gulp.dest('./www/build/'))
     .pipe(rev.manifest())
     .pipe(gulp.dest('./www/build/'));
+
+  setTimeout(cb, 200)
 });
 
 gulp.task('revReplace', function () {
-  setTimeout(function () {
-    gulp.src('./www/index.html')
-      .pipe(revReplace({manifest: gulp.src("./www/build/rev-manifest.json")}))
-      .pipe(gulp.dest('./www/'));
-
-    gulp.src('./www/service-worker.js')
-      .pipe(revReplace({manifest: gulp.src("./www/build/rev-manifest.json")}))
-      .pipe(gulp.dest('./www/'));
-  }, 1000);
+  gulp.src('./www/index.html')
+    .pipe(revReplace({manifest: gulp.src("./www/build/rev-manifest.json")}))
+    .pipe(gulp.dest('./www/'));
 });
