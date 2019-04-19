@@ -5,6 +5,8 @@ import { Events, IonicModule } from "ionic-angular";
 import { HttpClientModule } from "@angular/common/http";
 import { IonWechatProvidersModule } from "./providers/providers.module";
 import { Photo } from "./pipes/photo";
+import * as VConsole from "vconsole";
+import { Wechat } from "./providers/wechat";
 export var UI;
 export var Data;
 export var IonEvent;
@@ -14,6 +16,9 @@ var IonWechatModule = /** @class */ (function () {
         IonWechatModule.DEBUG = options.debug;
         Photo.BASE_URL = options.imgBaseUrl;
         DataService.KEY_USER = options.userKey || "user";
+        if (Wechat.getUrlParam("vConsole")) {
+            new VConsole();
+        }
         UI = ui;
         Data = data;
         IonEvent = events;

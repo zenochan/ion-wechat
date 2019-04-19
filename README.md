@@ -7,6 +7,10 @@
 > npm i --save zenochan/ion-wechat
 ------
 
+## Components
+ 
+- qrcode: `<qrcode></qrcode>`
+
 ## USAGE
 
 #### PROVIDERS

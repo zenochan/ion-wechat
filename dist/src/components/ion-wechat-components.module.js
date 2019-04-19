@@ -5,11 +5,13 @@ import { CommonModule } from "@angular/common";
 import { RichTextComponent } from "./rich-text/rich-text";
 import { IonWechatPipesModule } from "../pipes/pipes.module";
 import { BgmComponent } from "./bgm/bgm";
+import { QrcodeComponent } from "./qrcode/qrcode";
 var components = [
     TinterComponent,
     SmartImgComponent,
     RichTextComponent,
-    BgmComponent
+    BgmComponent,
+    QrcodeComponent
 ];
 var IonWechatComponentsModule = /** @class */ (function () {
     function IonWechatComponentsModule() {
