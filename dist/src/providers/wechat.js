@@ -48,6 +48,9 @@ var Wechat = /** @class */ (function () {
        * @return Promise<number> 0-好友，1-朋友圈
        */
     function (options) {
+        if (options.imgUrl.indexOf("http") == -1) {
+            options.imgUrl = location.href.split("?")[0] + options.imgUrl;
+        }
         return this.sign().catch(function (err) { return console.log("jssdk 签名失败", err); })
             .then(function () {
             return new Promise(function (resolve) {
