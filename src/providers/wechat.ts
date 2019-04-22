@@ -142,6 +142,11 @@ export class Wechat
    */
   static onShareWechat(options: { title: string, desc: string, link: string, imgUrl: string }): Promise<number>
   {
+
+    if (options.imgUrl.indexOf("http") == -1) {
+      options.imgUrl = location.href.split("?")[0] + options.imgUrl;
+    }
+
     return this.sign().catch(err => console.log("jssdk 签名失败", err))
         .then(() => {
           return new Promise<number>(resolve => {
@@ -547,4 +552,5 @@ export class WXLocation
   longitude: number = 121.473701;
   errMsg: string = "getLocation:ok";
 }
+
 

@@ -21,9 +21,9 @@ gulp.task('cdnReplace', function (cb) {
     .pipe(replace(/href=["']build/g, 'href="' + cdn + 'build'))
     .pipe(gulp.dest('./www/'));
 
-  // assets
   gulp.src('./www/build/main.js')
-    .pipe(replace(/["'](.\/)?assets/g, '"' + cdn + 'assets/'))
+    .pipe(replace(/"[.]{0,}[\/]?assets/g, '"' + cdn + 'assets'))
+    .pipe(replace(/.(png|jpg|mp3)[?]?/g, '.$1?v=20190420&'))
     .pipe(gulp.dest('./www/build/'));
 
   setTimeout(cb, 200)
