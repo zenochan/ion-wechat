@@ -1,4 +1,4 @@
-# Ioniz
+# Ion-Wechat
 > 使用 ionic 开发微信 web 项目的通用模块
 
 ------
@@ -11,7 +11,7 @@
 
 
 ## USAGE
-> npm i --save @izeno/ioniz
+> npm i --save @izeno/ion-wechat
 
 #### PROVIDERS
 ```ts
