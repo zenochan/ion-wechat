@@ -1,17 +1,17 @@
-# Ion-Wechat
+# Ioniz
 > 使用 ionic 开发微信 web 项目的通用模块
 
-------
-
-## INSTALL
-> npm i --save zenochan/ion-wechat
 ------
 
 ## Components
  
 - qrcode: `<qrcode></qrcode>`
+- `<smart-img url="imgUrl" mode="0(default)|1|2"/>`
+    > 0:aspect-fit, 1: scale-fill ,2 :aspect-fit
+
 
 ## USAGE
+> npm i --save @izeno/ioniz
 
 #### PROVIDERS
 ```ts
@@ -31,21 +31,20 @@ export class AppModule
 ```
 
 #### PIPES
+- [photo](./src/pipes/photo.ts)
+- [sanitizer](./src/pipes/sanitizer.ts)
+- [zdate](./src/pipes/zdate.ts)
+- [preview](./src/pipes/preview.ts)
 
 
 #### WEUI
-```bash
-cp -r node_modules/ion-wechat/dist/weui/ src/weui/
-```
-
-app.scss
 ```scss
-@import "../assets/css/weui.ionicx.css";
+@import "../../node_modules/ion-wechat/src/scss/icon-maker";
+@import "../../node_modules/ion-wechat/src/weui/weui.ionicx";
+
+@include makeIcon('home', "../assets/icon/ic_home.png", "../assets/icon/ic_home_o.png")
 ```
 
 
-#### components
-mode: 0:aspect-fit, 1: scale-fill ,2 :aspect-fit
-- <smart-img url="imgUrl" mode="0(default)|1|2"/>
 
 

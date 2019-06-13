@@ -1,9 +1,9 @@
 {
-  "name": "ion-wechat",
-  "version": "0.0.2",
+  "name": "@izeno/ioniz",
+  "version": "0.0.3",
   "author": "Zeno Chan",
-  "homepage": "https://zenochan.github.io/",
   "private": false,
+  "homepage": "https://github.com/zenochan/ioniz",
   "scripts": {
     "ngc": "ngc -p tsconfig-module.json",
     "clean": "ionic-app-scripts clean",
