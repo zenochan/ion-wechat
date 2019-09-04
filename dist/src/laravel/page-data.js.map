@@ -1,1 +1,0 @@
-{"version":3,"file":"page-data.js","sourceRoot":"","sources":["../../../src/laravel/page-data.ts"],"names":[],"mappings":"AAAA,IAAA;;;mBAAA;IAQC,CAAA;AARD,oBAQC","sourcesContent":["export class PageData<T>\n{\n  data: Array<T>;\n\n  current_page: number;\n  last_page: number;\n  total: number;\n  per_page: number;\n}"]}

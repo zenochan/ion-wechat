@@ -1,7 +1,5 @@
 {
-  "name": "wechat",
-  "integrations": {
-    "gulp": {}
-  },
-  "type": "ionic-angular"
+  "name": "robam_crm_web",
+  "integrations": {},
+  "type": "angular"
 }

@@ -1,0 +1,17 @@
+{
+  "name": "ion-wechat",
+  "version": "1.0.0",
+  "author": "Zeno Chan",
+  "repository": {
+    "url": "https://github.com/zenochan/ion-wechat"
+  },
+  "private": false,
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "@angular/common": "^8.1.3",
+    "@angular/core": "^8.1.3",
+    "@ionic/storage": "^2.2.0",
+    "vconsole": "^3.3.4"
+  }
+}

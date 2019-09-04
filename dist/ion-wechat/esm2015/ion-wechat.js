@@ -1,0 +1,15 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Generated bundle index. Do not edit.
+ */
+export { IonWechatPipesModule, CONFIG, UI, DB, IonEvent, IonWechatModule, Wechat } from './public-api';
+export { Photo as ɵd } from './lib/pipes/photo';
+export { PreviewPipe as ɵa } from './lib/pipes/preview';
+export { Sanitizer as ɵb } from './lib/pipes/sanitizer';
+export { ZdatePipe as ɵc } from './lib/pipes/zdate';
+export { DataService as ɵf } from './lib/service/data.service';
+export { UiService as ɵe } from './lib/service/ui.service';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW9uLXdlY2hhdC5qcyIsInNvdXJjZVJvb3QiOiJuZzovL2lvbi13ZWNoYXQvIiwic291cmNlcyI6WyJpb24td2VjaGF0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFJQSx3RkFBYyxjQUFjLENBQUM7QUFFN0IsT0FBTyxFQUFDLEtBQUssSUFBSSxFQUFFLEVBQUMsTUFBTSxtQkFBbUIsQ0FBQztBQUM5QyxPQUFPLEVBQUMsV0FBVyxJQUFJLEVBQUUsRUFBQyxNQUFNLHFCQUFxQixDQUFDO0FBQ3RELE9BQU8sRUFBQyxTQUFTLElBQUksRUFBRSxFQUFDLE1BQU0sdUJBQXVCLENBQUM7QUFDdEQsT0FBTyxFQUFDLFNBQVMsSUFBSSxFQUFFLEVBQUMsTUFBTSxtQkFBbUIsQ0FBQztBQUNsRCxPQUFPLEVBQUMsV0FBVyxJQUFJLEVBQUUsRUFBQyxNQUFNLDRCQUE0QixDQUFDO0FBQzdELE9BQU8sRUFBQyxTQUFTLElBQUksRUFBRSxFQUFDLE1BQU0sMEJBQTBCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEdlbmVyYXRlZCBidW5kbGUgaW5kZXguIERvIG5vdCBlZGl0LlxuICovXG5cbmV4cG9ydCAqIGZyb20gJy4vcHVibGljLWFwaSc7XG5cbmV4cG9ydCB7UGhvdG8gYXMgybVkfSBmcm9tICcuL2xpYi9waXBlcy9waG90byc7XG5leHBvcnQge1ByZXZpZXdQaXBlIGFzIMm1YX0gZnJvbSAnLi9saWIvcGlwZXMvcHJldmlldyc7XG5leHBvcnQge1Nhbml0aXplciBhcyDJtWJ9IGZyb20gJy4vbGliL3BpcGVzL3Nhbml0aXplcic7XG5leHBvcnQge1pkYXRlUGlwZSBhcyDJtWN9IGZyb20gJy4vbGliL3BpcGVzL3pkYXRlJztcbmV4cG9ydCB7RGF0YVNlcnZpY2UgYXMgybVmfSBmcm9tICcuL2xpYi9zZXJ2aWNlL2RhdGEuc2VydmljZSc7XG5leHBvcnQge1VpU2VydmljZSBhcyDJtWV9IGZyb20gJy4vbGliL3NlcnZpY2UvdWkuc2VydmljZSc7Il19

@@ -1,49 +1,31 @@
+import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {ErrorHandler, NgModule} from '@angular/core';
-import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
-import {SplashScreen} from '@ionic-native/splash-screen';
-import {StatusBar} from '@ionic-native/status-bar';
+import {RouteReuseStrategy} from '@angular/router';
 
-import {MyApp} from './app.component';
-import {HomePage} from '../pages/home/home';
-import {IonWechatModule} from "../ion-wechat.module";
-import {StickyPageModule} from "../pages/sticky/sticky.module";
-import {IonWechatDirectivesModule} from "../directives/ion-wechat-directives.module";
-import {TinterPageModule} from "../pages/tinter/tinter.module";
-import {MediaPlayerPageModule} from "../pages/media-player/media-player.module";
-import {IonWechatComponentsModule} from "../components/ion-wechat-components.module";
+import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
+import {StatusBar} from '@ionic-native/status-bar/ngx';
+
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {IonWechatModule} from '../../projects/ion-wechat/src/lib/ion-wechat.module';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage
-  ],
-
+  declarations: [AppComponent],
+  entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(),
+    AppRoutingModule,
     IonWechatModule.forRoot({
-      debug: true,
-      userKey: "user",
-      imgBaseUrl: ""
+      imgBaseUrl: '',
     }),
-    StickyPageModule,
-    TinterPageModule,
-    MediaPlayerPageModule,
-    IonWechatDirectivesModule,
-    IonWechatComponentsModule,
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
+  bootstrap: [AppComponent]
 })
-export class AppModule
-{
-}
+export class AppModule {}

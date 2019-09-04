@@ -1,0 +1,89 @@
+@import "weui.min.scss";
+@import "weui.page.scss";
+
+ion-loading {
+  ion-backdrop {
+    background: transparent;
+  }
+}
+
+.loading-wrapper {
+  background: none !important;
+  box-shadow: none !important;
+
+  .weui-toast {
+    top: -18px;
+  }
+}
+
+.button-sp-area {
+  margin: 0 auto;
+  padding: 15px 0;
+  width: 60%;
+}
+
+.weui-toptips {
+  display: block;
+  position: fixed;
+  top: 45px;
+}
+
+.weui-gallery {
+  display: block;
+}
+
+.placeholder {
+  margin: 5px;
+  padding: 0 10px;
+  background-color: #ebebeb;
+  height: 2.3em;
+  line-height: 2.3em;
+  text-align: center;
+  color: #cfcfcf;
+}
+
+// 输入框不要边框
+input, textarea {
+  border: none;
+  border-radius: 0;
+}
+
+// 通用的空样式
+.empty {
+  color: #999999;
+  text-align: center;
+  font-size: 16px;
+  line-height: 70vh;
+}
+
+// 下拉刷新不要线
+.has-refresher > .scroll-content {
+  border-top: none !important;
+}
+
+
+// 安卓按钮去阴影
+.button-md {
+  box-shadow: none !important;
+}
+
+// 安卓 tabs 样式调整
+.tabs-md {
+
+  .tabbar {
+    height: 56px !important;
+  }
+
+  .tab-button-icon.icon-md {
+    font-size: 30px !important;
+
+    &:before {
+      margin: 0 !important;
+    }
+
+  }
+
+  .tab-button-text {
+    margin-top: -4px !important;
+  }
+}
