@@ -20,7 +20,16 @@
   "files": [
     "dist/ion-wechat"
   ],
-  "main": "/dist/ion-wechat/public-api.d.ts",
+  "main": "dist/ion-wechat/bundles/ion-wechat.umd.js",
+  "module": "dist/ion-wechat/fesm5/ion-wechat.js",
+  "es2015": "dist/ion-wechat/fesm2015/ion-wechat.js",
+  "esm5": "dist/ion-wechat/esm5/ion-wechat.js",
+  "esm2015": "dist/ion-wechat/esm2015/ion-wechat.js",
+  "fesm5": "dist/ion-wechat/fesm5/ion-wechat.js",
+  "fesm2015": "dist/ion-wechat/fesm2015/ion-wechat.js",
+  "typings": "dist/ion-wechat/ion-wechat.d.ts",
+  "metadata": "dist/ion-wechat/ion-wechat.metadata.json",
+  "sideEffects": false,
   "dependencies": {
     "tslib": "^1.9.0",
     "vconsole": "^3.3.4",
