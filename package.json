@@ -20,7 +20,7 @@
   "files": [
     "dist/ion-wechat"
   ],
-  "main": "dist/ion-wechat/public-api.d.ts",
+  "main": "/dist/ion-wechat/public-api.d.ts",
   "dependencies": {
     "tslib": "^1.9.0",
     "vconsole": "^3.3.4",
